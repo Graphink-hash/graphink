@@ -2,232 +2,284 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>GraphINK | Creative Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GraphINK | Links</title>
 
-<!-- SEO Meta Tags -->
-<meta name="description" content="GraphINK is a creative design & printing studio providing professional graphic design, digital printing, and sublimation services for brands, businesses, and individuals.">
-<meta name="keywords" content="GraphINK, graphic design, digital printing, sublimation, branding, logo design, printing services, Malaysia">
-<meta name="author" content="GraphINK Creative Studio">
-
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
+<meta name="theme-color" content="#000000">
 
 <style>
-:root{
-  --primary:#FF3C00;
-  --secondary:#00AEEF;
-  --accent:#EC008C;
-  --background:#F6F6F6;
-  --text:#222;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:var(--background);color:var(--text);line-height:1.6;scroll-behavior:smooth}
-
-/* HEADER */
-header{background:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 5px 15px rgba(0,0,0,.05)}
-.logo img{height:40px;width:auto}
-nav a{color:#000;text-decoration:none;margin-left:25px;font-size:14px;font-weight:500}
-nav a:hover{color:var(--primary)}
-
-/* HERO */
-.hero{
-  background:linear-gradient(120deg,#000,#222), url('https://via.placeholder.com/1600x600?text=GraphINK+Background') no-repeat center/cover;
+body{
+  background:#000;
   color:#fff;
-  text-align:center;
-  padding:120px 20px;
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  padding:clamp(20px, 5vw, 40px);
+  overflow-x:hidden;
 }
-.hero h1{font-size:48px;margin-bottom:15px}
-.hero span{color:var(--primary)}
-.hero p{max-width:700px;margin:auto;font-size:18px;opacity:.9}
-.btn{display:inline-block;margin-top:30px;padding:14px 36px;background:var(--primary);color:#fff;text-decoration:none;font-weight:600;border-radius:8px}
-.btn:hover{background:#e63700;transition:0.3s}
 
-/* SECTION */
-.section{max-width:1200px;margin:60px auto;padding:0 20px}
-.section h3{text-align:center;font-size:32px;margin-bottom:20px;color:var(--primary)}
-.divider{width:60px;height:6px;margin:0 auto 40px;background:linear-gradient(to right,var(--secondary),var(--accent),var(--primary))}
+/* PAGE CENTER */
+.page{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.page-inner{
+  margin:auto 0;
+}
 
-/* GRID & CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{background:#fff;padding:30px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.08);transition:all 0.3s ease;text-align:center}
-.card:hover{transform:translateY(-8px);box-shadow:0 15px 30px rgba(0,0,0,.12)}
-.card h4{margin-bottom:12px;color:var(--primary)}
-.card p{font-size:15px;color:#555;line-height:1.5}
+/* FADE IN */
+.fade{
+  animation:fadeIn .35s ease forwards;
+  opacity:0;
+}
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(6px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-/* PORTFOLIO */
-.filter-btns{text-align:center;margin-bottom:30px}
-.filter-btns button{background:var(--primary);color:#fff;border:none;padding:10px 20px;margin:0 5px;border-radius:6px;cursor:pointer;font-weight:600}
-.filter-btns button.active{background:#000}
-.portfolio img{width:100%;border-radius:12px;display:block}
+/* SUBTLE CMYK GLOW */
+.bg-glow{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+}
+.glow{
+  position:absolute;
+  width:520px;
+  height:520px;
+  filter:blur(180px);
+  opacity:.12;
+  animation:float 60s ease-in-out infinite;
+}
+.cyan{background:#00aeef; top:-200px; left:-200px;}
+.magenta{background:#ec008c; bottom:-220px; right:-220px; animation-delay:20s;}
+.yellow{background:#fff200; top:45%; right:-260px; opacity:.08; animation-delay:40s;}
+@keyframes float{
+  0%{transform:translate(0,0);}
+  50%{transform:translate(80px,60px);}
+  100%{transform:translate(0,0);}
+}
 
-/* PRICING */
-.price{font-size:32px;font-weight:700;color:var(--primary);margin:15px 0}
+/* CONTAINER */
+.container{
+  width:100%;
+  max-width:420px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
 
-/* CONTACT FORM */
-.contact-form{max-width:700px;margin:auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
-.contact-form input, .contact-form textarea{width:100%;padding:12px 15px;margin-bottom:15px;border-radius:8px;border:1px solid #ccc;font-size:14px}
-.contact-form button{padding:14px 36px;background:var(--primary);color:#fff;border:none;font-weight:600;border-radius:8px;cursor:pointer}
-.contact-form button:hover{background:#e63700;transition:0.3s}
+/* LOGO */
+.logo{
+  max-width:120px;
+  margin:0 auto 18px;
+}
 
-/* CTA */
-.cta{background:#000;color:#fff;text-align:center;padding:90px 20px}
-.cta h3{font-size:34px;margin-bottom:10px}
+/* TITLE */
+h1{
+  font-size:30px;
+  letter-spacing:2px;
+}
 
-/* FOOTER */
-footer{background:#111;color:#aaa;text-align:center;padding:18px;font-size:13px;margin-top:60px}
+/* TAGLINE */
+.tagline{
+  font-size:14px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-weight:600;
+  opacity:.75;
+  margin:6px 0 12px;
+}
 
-/* WHATSAPP FLOAT */
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:600;box-shadow:0 10px 20px rgba(0,0,0,.3)}
+/* ABOUT */
+.about{
+  font-size:14px;
+  opacity:.85;
+  line-height:1.6;
+  margin-bottom:18px;
+}
 
-/* MOBILE */
-@media(max-width:600px){
-  header{padding:18px}
-  .hero h1{font-size:30px}
+/* SOCIAL ICONS */
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:22px;
+}
+.social-icons a{
+  width:36px;
+  height:36px;
+  background:#fff;
+  color:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+
+/* WHATSAPP COMBINED */
+.wa-combined{
+  display:flex;
+  width:100%;
+  background:#fff;
+  border-radius:34px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  margin-bottom:6px;
+}
+
+.wa-item{
+  flex:1;
+  text-decoration:none;
+  color:#000;
+  padding:12px 6px;
+  font-size:13px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+}
+
+.wa-item i{
+  font-size:14px;
+  color:#25D366;
+}
+
+.wa-item:not(:last-child){
+  border-right:1px solid rgba(0,0,0,.12);
+}
+
+/* TAP HINT */
+.chat-hint{
+  font-size:12px;
+  opacity:.45;
+  margin-bottom:24px;
+}
+
+/* SECTIONS */
+.section{
+  margin-bottom:18px;
+}
+.section h3{
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:.6;
+  margin-bottom:6px;
+}
+.section p{
+  font-size:14px;
+  opacity:.85;
+  line-height:1.6;
+}
+
+/* CTA + FOOTER */
+.bottom-cta{
+  margin-top:28px;
+  font-size:14px;
+  opacity:.85;
+}
+.footer{
+  margin-top:10px;
+  font-size:12px;
+  opacity:.5;
 }
 </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo"><img src="logo.png" alt="GraphINK Logo"></div>
-  <nav>
-    <a href="#overview">About</a>
-    <a href="#services">Services</a>
-    <a href="#works">Works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+<div class="bg-glow">
+  <div class="glow cyan"></div>
+  <div class="glow magenta"></div>
+  <div class="glow yellow"></div>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Ink Your <span>Ideas</span></h1>
-  <p>GraphINK adalah syarikat kreatif yang mengkhususkan dalam digital design, printing, dan sublimation. Kami membantu individu dan perniagaan membawa idea mereka menjadi realiti melalui design yang menarik dan kualiti cetakan premium.</p>
-  <a href="#contact" class="btn">Get Free Quotation</a>
-</section>
+<div class="page">
+  <div class="page-inner fade">
+    <div class="container">
 
-<!-- COMPANY OVERVIEW -->
-<section class="section" id="overview">
-  <h3>Company Overview</h3>
-  <div class="divider"></div>
-  <div class="grid">
-    <div class="card">
-      <h4>Visi</h4>
-      <p>Menjadi rakan kreatif pilihan utama untuk semua keperluan design dan cetakan.</p>
-    </div>
-    <div class="card">
-      <h4>Misi</h4>
-      <p>Menghasilkan karya berkualiti tinggi dengan inovasi, kreativiti, dan servis yang mudah diakses.</p>
-    </div>
-  </div>
-</section>
+      <img src="logo.png" alt="GraphINK Logo" class="logo">
 
-<!-- SERVICES -->
-<section class="section" id="services">
-  <h3>Our Services</h3>
-  <div class="divider"></div>
-  <div class="grid">
-    <div class="card">
-      <h4>Graphic Design</h4>
-      <p>Logo, branding, marketing materials, digital content.</p>
-    </div>
-    <div class="card">
-      <h4>Printing Services</h4>
-      <p>Poster, flyer, sticker, merchandise.</p>
-    </div>
-    <div class="card">
-      <h4>Sublimation & Merchandise</h4>
-      <p>Mug, t-shirt, phone case, dan barangan custom lain.</p>
-    </div>
-    <div class="card">
-      <h4>Consultation</h4>
-      <p>Idea dan konsep kreatif untuk projek personal atau perniagaan.</p>
-    </div>
-  </div>
-</section>
+      <h1>GRAPHINK</h1>
+      <div class="tagline">“Ink Your Ideas”</div>
 
-<!-- WORKS / PORTFOLIO -->
-<section class="section" id="works">
-  <h3>Our Works</h3>
-  <div class="divider"></div>
-  <div class="filter-btns">
-    <button class="active" onclick="filterWorks('all')">All</button>
-    <button onclick="filterWorks('design')">Design</button>
-    <button onclick="filterWorks('print')">Print</button>
-    <button onclick="filterWorks('apparel')">Apparel</button>
-  </div>
-  <div class="grid portfolio">
-    <img class="work-item design" src="https://via.placeholder.com/400x300?text=Logo" alt="Design 1">
-    <img class="work-item print" src="https://via.placeholder.com/400x300?text=Flyer" alt="Print 1">
-    <img class="work-item apparel" src="https://via.placeholder.com/400x300?text=T-shirt" alt="Apparel 1">
-    <img class="work-item design" src="https://via.placeholder.com/400x300?text=Poster" alt="Design 2">
-    <img class="work-item print" src="https://via.placeholder.com/400x300?text=Sticker" alt="Print 2">
-    <img class="work-item apparel" src="https://via.placeholder.com/400x300?text=Jersey" alt="Apparel 2">
-  </div>
-</section>
+      <div class="about">
+        GraphINK is a creative design & printing studio helping individuals and businesses
+        bring ideas to life through impactful design and premium print quality.
+      </div>
 
-<!-- PRICING -->
-<section class="section" id="pricing">
-  <h3>Pricing</h3>
-  <div class="divider"></div>
-  <div class="grid">
-    <div class="card">
-      <h4>Starter Design</h4>
-      <p class="price">RM99</p>
-      <p>Poster / simple design<br>1 revision</p>
-    </div>
-    <div class="card">
-      <h4>Brand Package</h4>
-      <p class="price">RM399</p>
-      <p>Logo + branding kit<br>3 revisions</p>
-    </div>
-    <div class="card">
-      <h4>Printing Package</h4>
-      <p class="price">Custom</p>
-      <p>Based on quantity & material</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+      <!-- WHATSAPP BUTTON (ICON + LABEL) -->
+      <div class="wa-combined">
+        <a class="wa-item"
+           href="https://wa.me/60199083295?text=Hi%20GraphINK%2C%20I%20would%20like%20to%20ask%20about%20pricing%2C%20quantity%2C%20and%20timeline.">
+          <i class="fab fa-whatsapp"></i> Sales
+        </a>
+
+        <a class="wa-item"
+           href="https://wa.me/60123456789?text=Hi%20GraphINK%2C%20I%20need%20help%20with%20design%20concept%2C%20references%2C%20and%20deadline.">
+          <i class="fab fa-whatsapp"></i> Design
+        </a>
+
+        <a class="wa-item"
+           href="https://wa.me/60111111111?text=Hi%20GraphINK%2C%20I%20would%20like%20to%20ask%20about%20printing%20size%2C%20material%2C%20and%20quantity.">
+          <i class="fab fa-whatsapp"></i> Printing
+        </a>
+      </div>
+
+      <div class="chat-hint">Tap to chat on WhatsApp</div>
+
+      <div class="section">
+        <h3>Our Services</h3>
+        <p>
+          • Graphic design & branding<br>
+          • Printing & custom materials<br>
+          • Creative consultation
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Why Choose Us</h3>
+        <p>
+          • Creative & professional<br>
+          • Custom & flexible<br>
+          • Fast & affordable
+        </p>
+      </div>
+
+      <div class="bottom-cta">
+        Have a project in mind? Let’s work together.
+      </div>
+
+      <div class="footer">
+        © 2026 GraphINK · 📍 Malaysia
+      </div>
+
     </div>
   </div>
-</section>
-
-<!-- CONTACT US -->
-<section class="section" id="contact">
-  <h3>Contact Us</h3>
-  <div class="divider"></div>
-  <div class="contact-form">
-    <form action="#" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="text-align:center;margin-top:15px;">Or contact us directly via <a href="https://wa.me/60123456789?text=Hello%20GraphINK" target="_blank" style="color:var(--primary);">WhatsApp</a></p>
-  </div>
-</section>
-
-<footer>© 2026 GraphINK Creative Studio. All Rights Reserved.</footer>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/60123456789?text=Hello%20GraphINK" class="whatsapp">WhatsApp</a>
-
-<script>
-function filterWorks(category){
-  const works = document.querySelectorAll('.work-item');
-  works.forEach(item=>{
-    if(category==='all'){ item.style.display='block'; }
-    else{ item.style.display = item.classList.contains(category) ? 'block' : 'none'; }
-  });
-  const buttons = document.querySelectorAll('.filter-btns button');
-  buttons.forEach(btn=>btn.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+</div>
 
 </body>
 </html>
