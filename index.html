@@ -1,509 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Graphink — Printing Studio</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>GraphINK | Ink Your Ideas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="GraphINK is a creative design & printing studio providing professional graphic design, digital printing, and sublimation services for brands, businesses, and individuals.">
+<meta name="keywords" content="GraphINK, graphic design, digital printing, sublimation, branding, logo design, printing services, Malaysia">
+<meta name="author" content="GraphINK Creative Studio">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+
 <style>
-  :root{
-    /* Palette from your image */
-    --peach:    #F8B195;
-    --coral:    #F67280; /* primary accent (buttons/highlights) */
-    --rose:     #C06C84;
-    --purple:   #6C5B7B;
-    --navy:     #355C7D;
+:root{
+  --black:#000000;
+  --red:#FF3C00;
+  --cyan:#00AEEF;
+  --magenta:#EC008C;
+  --yellow:#FFF200;
+  --light:#F6F6F6;
+  --text:#222222;
+}
 
-    /* UI tokens */
-    --white:    #ffffff;
-    --dark:     #0F1720;   /* used on light/glass surfaces */
-    --glass-bg: rgba(255,255,255,0.18);   /* glass panel tint */
-    --glass-border: rgba(255,255,255,0.32);
-    --glass-border-strong: rgba(255,255,255,0.45);
-    --card-shadow: 0 18px 40px rgba(20,20,20,0.10);
-    --ease: cubic-bezier(.2,.9,.2,1);
-  }
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:var(--light);color:var(--text);line-height:1.6}
 
-  /* Reset + base */
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    color:var(--white);
-    /* warm gradient background (top->bottom) */
-    background: linear-gradient(180deg,
-      var(--peach) 0%,
-      var(--coral) 18%,
-      var(--rose) 38%,
-      var(--purple) 66%,
-      var(--navy) 100%);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing:antialiased;
-  }
+/* HEADER */
+header{background:#fff;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
+.logo img{height:40px;width:auto}
+nav a{color:#000;text-decoration:none;margin-left:25px;font-size:14px;font-weight:500}
 
-  /* Sticky header (glass + color) */
-  header{
-    position: sticky;
-    top: 0;
-    z-index: 120;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:14px 28px;
-    background: linear-gradient(90deg, rgba(246,114,128,0.95), rgba(192,108,132,0.9));
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  .logo{display:flex;align-items:center;gap:12px;}
-  .logo-mark{
-    width:48px;height:48px;border-radius:10px;
-    background: linear-gradient(135deg,var(--peach),var(--coral));
-    display:grid;place-items:center;font-weight:800;color: #24181a;font-size:1.05rem;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-  }
-  h1{margin:0;font-size:1.05rem;color:var(--navy);font-weight:800;letter-spacing:.4px}
-  nav a{
-    color:var(--white);
-    margin-left:18px;
-    text-decoration:none;
-    font-weight:700;
-    transition: transform .12s ease, opacity .12s ease;
-  }
-  nav a:hover, nav a:focus{ transform: translateY(-2px); opacity:0.95; outline:none }
+/* HERO */
+.hero{background:linear-gradient(120deg,#000,#222);color:#fff;text-align:center;padding:110px 20px}
+.hero h2{font-size:46px;margin-bottom:15px}
+.hero span{color:var(--red)}
+.hero p{max-width:650px;margin:auto;opacity:.9}
+.btn{display:inline-block;margin-top:35px;padding:14px 36px;background:var(--red);color:#fff;text-decoration:none;font-weight:600;border-radius:8px}
 
-  /* Hero */
-  .hero{
-    padding:72px 20px 56px;
-    text-align:center;
-    clip-path: polygon(0 0,100% 0,100% 84%,0 100%);
-  }
-  .hero-inner{
-    max-width:980px;margin:0 auto;padding:28px;border-radius:14px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.90));
-    color: var(--dark);
-    box-shadow: 0 18px 48px rgba(20,20,20,0.06);
-    border: 1px solid rgba(18,18,18,0.02);
-  }
-  .eyebrow{
-    display:inline-block;padding:8px 14px;border-radius:999px;
-    background: var(--coral);
-    color: var(--white); font-weight:700; margin-bottom:12px;
-  }
-  .hero h2{ margin:6px 0 12px; font-size:clamp(28px,4vw,44px); line-height:1.02; color:var(--navy) }
-  .hero p{ max-width:820px; margin:0 auto; color: rgba(15,23,32,0.65); font-weight:600 }
+/* SECTIONS */
+.section{max-width:1200px;margin:auto;padding:90px 20px}
+.section h3{text-align:center;font-size:32px}
+.divider{width:60px;height:6px;margin:15px auto 45px;background:linear-gradient(to right,var(--cyan),var(--magenta),var(--yellow),var(--black))}
 
-  .cta-row{ margin-top:22px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap }
-  .btn{
-    padding:11px 26px; border-radius:26px; border:0; cursor:pointer; font-weight:800;
-    transition: transform .22s var(--ease), box-shadow .22s var(--ease);
-    font-size:0.95rem;
-  }
-  .btn-coral{ background:var(--coral); color:var(--white); box-shadow: 0 12px 36px rgba(246,114,128,0.16); border: 1px solid rgba(255,255,255,0.06); }
-  .btn-ghost{ background: transparent; border: 2px solid rgba(18,18,18,0.06); color: var(--navy); }
-  .btn:hover{ transform: translateY(-6px) }
+/* GRID & CARD */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.card{background:#fff;padding:35px;border-radius:14px;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,.08)}
+.card h4{margin-bottom:10px;font-size:18px}
+.card p{font-size:14px;color:#555}
 
-  /* Main sections */
-  main{ padding:34px 18px 100px }
-  .section{ max-width:1200px; margin:0 auto 56px; padding:8px 12px }
-  .section-title{ font-size:22px; margin-bottom:18px; color:var(--peach); font-weight:800; display:inline-block; padding-bottom:6px; border-bottom:4px solid rgba(0,0,0,0.03); }
-  .lead{ color: rgba(15,23,32,0.6); font-weight:600; margin-bottom:18px }
+/* PORTFOLIO FILTER */
+.filter-btns{text-align:center;margin-bottom:30px}
+.filter-btns button{background:var(--red);color:#fff;border:none;padding:10px 20px;margin:0 5px;border-radius:6px;cursor:pointer;font-weight:600}
+.filter-btns button.active{background:var(--black)}
 
-  /* Glass card base - used by service cards, small cards, contact card, etc. */
-  .glass-card{
-    background: var(--glass-bg);
-    color: var(--dark);
-    padding:20px;
-    border-radius:12px;
-    border: 1px solid var(--glass-border);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    box-shadow: var(--card-shadow);
-    transition: transform .36s var(--ease), box-shadow .36s var(--ease), opacity .36s var(--ease);
-    will-change: transform, opacity;
-    backdrop-clip: padding-box;
-  }
-  .glass-card h3{ margin:0 0 8px; color: var(--navy); font-weight:800 }
-  .glass-card p{ margin:0; color:#222; line-height:1.45 }
+.portfolio img{width:100%;border-radius:12px;display:block}
 
-  /* Services grid */
-  .services-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
-  .service-card{ padding:22px; border-radius:12px; display:flex; flex-direction:column; justify-content:space-between; }
-  .service-card:hover{ transform: translateY(-8px) scale(1.02); box-shadow: 0 34px 70px rgba(20,20,20,0.12) }
-  .service-actions{ display:flex; gap:10px; margin-top:auto; }
+/* PRICING */
+.price{font-size:32px;font-weight:700;color:var(--red);margin:15px 0}
 
-  .btn-req{ background:var(--coral); color:var(--white); padding:10px 16px; border-radius:10px; border:0; cursor:pointer; font-weight:800 }
-  .btn-req:hover{ transform: translateY(-5px); box-shadow: 0 20px 48px rgba(246,114,128,0.12) }
-  .btn-secondary{ background:transparent; border:2px solid rgba(0,0,0,0.06); padding:10px 14px; border-radius:10px; font-weight:700; color:var(--navy) }
+/* CTA */
+.cta{background:#000;color:#fff;text-align:center;padding:90px 20px}
+.cta h3{font-size:34px;margin-bottom:10px}
 
-  /* Portfolio */
-  .portfolio-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
-  .mockup{ border-radius:12px; overflow:hidden; position:relative; padding:8px; min-height:220px; display:flex; align-items:center; justify-content:center; box-shadow: 0 12px 32px rgba(20,20,20,0.08); transform:scale(0.99); transition: transform .6s var(--ease), box-shadow .4s var(--ease), opacity .6s var(--ease); }
-  .mockup:hover{ transform: scale(1.03); box-shadow: 0 30px 70px rgba(20,20,20,0.12) }
+/* FOOTER */
+footer{background:#111;color:#aaa;text-align:center;padding:18px;font-size:13px}
 
-  .mockup .frame{
-    width:100%; height:100%; border-radius:10px; overflow:hidden;
-    background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.90));
-    border: 1px solid rgba(18,18,18,0.03);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-  .mockup img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .mockup .meta{ position:absolute; left:14px; top:12px; font-size:12px; color:var(--dark); font-weight:700; letter-spacing:0.5px; text-shadow: none; }
-  .mockup .meta span{ display:block; font-size:11px; color:rgba(0,0,0,0.45); font-weight:600 }
+/* WHATSAPP FLOAT */
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:600;box-shadow:0 10px 20px rgba(0,0,0,.3)}
 
-  /* Why Graphink small cards */
-  .card{ padding:18px; border-radius:12px; }
-
-  /* Contact area */
-  .contact-grid{ display:grid; grid-template-columns: 1fr 380px; gap:18px; align-items:start; }
-  .contact-form{
-    padding:20px; border-radius:12px; color:var(--dark);
-    background: var(--glass-bg); border: 1px solid var(--glass-border);
-    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-    box-shadow: var(--card-shadow);
-  }
-  .contact-form:hover{ transform: translateY(-6px) }
-  label{ display:block; font-size:13px; margin-bottom:6px; color:var(--dark); font-weight:700 }
-  input[type="text"], input[type="email"], textarea{
-    width:100%; padding:10px 12px; border-radius:8px; border:0; background: rgba(255,255,255,0.96); color:var(--dark); resize:vertical;
-  }
-  textarea{ min-height:140px }
-  .form-row{ margin-bottom:12px }
-
-  .contact-card{
-    padding:20px;border-radius:12px;background: var(--glass-bg);border:1px solid var(--glass-border);box-shadow:var(--card-shadow);color:var(--dark);
-  }
-  .contact-card h4{ margin:0 0 8px; color:var(--navy) }
-  .muted{ color: rgba(0,0,0,0.55) }
-
-  /* Footer (glass + readable) */
-  footer{
-    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.90));
-    color: var(--dark);
-    padding:20px 14px; text-align:center; border-top: 1px solid rgba(0,0,0,0.03);
-    box-shadow: 0 -8px 30px rgba(20,20,20,0.02);
-  }
-  footer a{ color: var(--navy); text-decoration:none; font-weight:700 }
-
-  /* Back to top */
-  #backTop{
-    position:fixed; right:22px; bottom:22px; width:48px; height:48px; border-radius:10px;
-    background:var(--coral); color:var(--white); display:grid; place-items:center; z-index:150;
-    box-shadow:0 12px 30px rgba(0,0,0,0.12); cursor:pointer; opacity:0; transform:translateY(12px);
-    transition: opacity .28s var(--ease), transform .28s var(--ease);
-  }
-  #backTop.visible{ opacity:1; transform:translateY(0) }
-
-  /* Responsive */
-  @media (max-width:1000px){ .portfolio-grid{grid-template-columns:repeat(2,1fr)} .contact-grid{grid-template-columns:1fr} }
-  @media (max-width:640px){
-    .portfolio-grid{grid-template-columns:1fr}
-    header{padding:12px 16px}
-    .hero{padding:58px 12px}
-    nav{display:none}
-    .logo-mark{width:40px;height:40px}
-    .service-actions{flex-direction:column; gap:8px}
-  }
+/* MOBILE */
+@media(max-width:600px){header{padding:18px}.hero h2{font-size:30px}}
 </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="logo">
-    <div class="logo-mark" aria-hidden="true">G</div>
-    <h1>Graphink</h1>
-  </div>
-  <nav aria-label="Main navigation">
+  <div class="logo"><img src="logo.png" alt="GraphINK Logo"></div>
+  <nav>
     <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
+    <a href="#works">Works</a>
+    <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-inner">
-    <div class="eyebrow">Print Studio • Designer-led</div>
-    <h2 id="hero-title">Creative Prints. Color-accurate. Always.</h2>
-    <p class="lead">Graphink blends thoughtful design and precision printing to make brands pop — from business cards to large-format campaigns.</p>
-    <div class="cta-row">
-      <button class="btn btn-coral" id="heroQuote">Get a Quote</button>
-      <a class="btn btn-ghost" href="#portfolio">View Portfolio</a>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <h2>Ink Your <span>Ideas</span></h2>
+  <p>GraphINK is a creative design & printing studio providing professional graphic design, digital printing, and sublimation services.</p>
+  <a href="#contact" class="btn">Get Free Quotation</a>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <h3>Our Services</h3>
+  <div class="divider"></div>
+  <div class="grid">
+    <div class="card"><h4>Graphic Design</h4><p>Branding, logo, posters, social media & marketing visuals.</p></div>
+    <div class="card"><h4>Digital Printing</h4><p>Flyers, banners, stickers, name cards & promotional materials.</p></div>
+    <div class="card"><h4>Sublimation Printing</h4><p>Custom t-shirts, jerseys & merchandise printing.</p></div>
   </div>
 </section>
 
-<main>
+<!-- WORKS / PORTFOLIO -->
+<section class="section" id="works">
+  <h3>Our Works</h3>
+  <div class="divider"></div>
 
-  <!-- Services -->
-  <section id="services" class="section" aria-labelledby="services-title">
-    <div class="section-title" id="services-title">Our Services</div>
-    <p class="lead">From concept to print — we cover the full workflow for designers and brands.</p>
+  <!-- Filter Buttons -->
+  <div class="filter-btns">
+    <button class="active" onclick="filterWorks('all')">All</button>
+    <button onclick="filterWorks('design')">Design</button>
+    <button onclick="filterWorks('print')">Print</button>
+    <button onclick="filterWorks('apparel')">Apparel</button>
+  </div>
 
-    <div class="services-grid">
-      <div class="service-card glass-card">
-        <div>
-          <h3>Custom Printing</h3>
-          <p>Business cards, flyers, brochures — printed with accurate color calibration and premium finishes.</p>
-        </div>
-        <div class="service-actions">
-          <button class="btn-req" data-scroll-to="contact">Request Quote</button>
-          <button class="btn-secondary" onclick="openDetail('Custom Printing')">Learn More</button>
-        </div>
-      </div>
+  <!-- Portfolio Grid -->
+  <div class="grid portfolio">
+    <img class="work-item design" src="https://via.placeholder.com/400x300?text=Logo" alt="Design 1">
+    <img class="work-item print" src="https://via.placeholder.com/400x300?text=Flyer" alt="Print 1">
+    <img class="work-item apparel" src="https://via.placeholder.com/400x300?text=T-shirt" alt="Apparel 1">
+    <img class="work-item design" src="https://via.placeholder.com/400x300?text=Poster" alt="Design 2">
+    <img class="work-item print" src="https://via.placeholder.com/400x300?text=Sticker" alt="Print 2">
+    <img class="work-item apparel" src="https://via.placeholder.com/400x300?text=Jersey" alt="Apparel 2">
+  </div>
+</section>
 
-      <div class="service-card glass-card">
-        <div>
-          <h3>Graphic Design</h3>
-          <p>Design-first approach. We help refine artwork for best print results and brand consistency.</p>
-        </div>
-        <div class="service-actions">
-          <button class="btn-req" data-scroll-to="contact">Request Quote</button>
-          <button class="btn-secondary" onclick="openDetail('Graphic Design')">Learn More</button>
-        </div>
-      </div>
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <h3>Pricing</h3>
+  <div class="divider"></div>
+  <div class="grid">
+    <div class="card"><h4>Starter Design</h4><p class="price">RM99</p><p>Poster / simple design<br>1 revision</p></div>
+    <div class="card"><h4>Brand Package</h4><p class="price">RM399</p><p>Logo + branding kit<br>3 revisions</p></div>
+    <div class="card"><h4>Printing Package</h4><p class="price">Custom</p><p>Based on quantity & material</p></div>
+  </div>
+</section>
 
-      <div class="service-card glass-card">
-        <div>
-          <h3>Large Format</h3>
-          <p>Banners, posters, signage — crisp, clean, and built to last for indoor and outdoor use.</p>
-        </div>
-        <div class="service-actions">
-          <button class="btn-req" data-scroll-to="contact">Request Quote</button>
-          <button class="btn-secondary" onclick="openDetail('Large Format')">Learn More</button>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <h3>Ready to Start Your Project?</h3>
+  <p>Fast response � Affordable � Professional</p>
+  <!-- WhatsApp auto-filled message -->
+  <a href="https://wa.me/60123456789?text=Hello%20GraphINK,%20I%20am%20interested%20in%20your%20services" class="btn">WhatsApp GraphINK</a>
+</section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="section" aria-labelledby="portfolio-title">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>
-        <div class="section-title" id="portfolio-title">Portfolio</div>
-        <p class="lead">Flat mockups show concept layout and color tone — replace with your work anytime.</p>
-      </div>
-      <div class="center" style="gap:12px">
-        <button class="btn btn-ghost" onclick="alert('To replace images, update the <img> src attributes in the code with your URLs.')">How to replace</button>
-      </div>
-    </div>
+<footer>� 2026 GraphINK Creative Studio. All Rights Reserved.</footer>
 
-    <div class="portfolio-grid" id="portfolioGrid" aria-live="polite">
-      <!-- Mockup 1: Poster -->
-      <div class="mockup">
-        <div class="meta" aria-hidden="true">Poster <span>24 × 36 in</span></div>
-        <div class="frame"><img src="https://picsum.photos/seed/poster/1200/800" alt="Poster mockup — vibrant campaign"></div>
-      </div>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/60123456789?text=Hello%20GraphINK,%20I%20am%20interested%20in%20your%20services" class="whatsapp"> WhatsApp</a>
 
-      <!-- Mockup 2: Business card -->
-      <div class="mockup">
-        <div class="meta" aria-hidden="true">Business Card <span>CMYK / 300dpi</span></div>
-        <div class="frame"><img src="https://picsum.photos/seed/card/1200/800" alt="Business card mockup — minimal"></div>
-      </div>
-
-      <!-- Mockup 3: Brochure -->
-      <div class="mockup">
-        <div class="meta" aria-hidden="true">Brochure <span>Tri-fold</span></div>
-        <div class="frame"><img src="https://picsum.photos/seed/brochure/1200/800" alt="Brochure mockup — brand brochure"></div>
-      </div>
-
-      <!-- Mockup 4: Label -->
-      <div class="mockup">
-        <div class="meta" aria-hidden="true">Label <span>Product</span></div>
-        <div class="frame"><img src="https://picsum.photos/seed/label/1200/800" alt="Label mockup — product label"></div>
-      </div>
-
-      <!-- Mockup 5: Banner -->
-      <div class="mockup">
-        <div class="meta" aria-hidden="true">Banner <span>Outdoor</span></div>
-        <div class="frame"><img src="https://picsum.photos/seed/banner/1200/800" alt="Banner mockup — event banner"></div>
-      </div>
-
-      <!-- Mockup 6: Merch -->
-      <div class="mockup">
-        <div class="meta" aria-hidden="true">Merch <span>T-shirt / Mug</span></div>
-        <div class="frame"><img src="https://picsum.photos/seed/merch/1200/800" alt="Merch mockup — t-shirt & mug"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Graphink -->
-  <section class="section" aria-labelledby="benefits-title">
-    <div class="section-title" id="benefits-title">Why Graphink</div>
-    <p class="lead">Trusted by designers & brands for faithful color reproduction and thoughtful execution.</p>
-    <div class="services-grid" style="margin-top:8px">
-      <div class="card glass-card">
-        <h3>Color-accurate</h3>
-        <p>CMYK prep, proofing, and calibration to ensure what you see on-screen prints as expected.</p>
-      </div>
-      <div class="card glass-card">
-        <h3>Fast Turnaround</h3>
-        <p>Efficient production pipeline with express options for tight schedules.</p>
-      </div>
-      <div class="card glass-card">
-        <h3>Sustainable Choices</h3>
-        <p>Eco-friendly media and soy-based inks available for most jobs.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section" aria-labelledby="contact-title">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
-      <div style="flex:1;min-width:300px">
-        <div class="section-title" id="contact-title">Contact Us</div>
-        <p class="lead">Start your project — tell us about the job, deadlines, and file readiness.</p>
-
-        <div class="contact-grid" style="margin-top:12px">
-          <!-- Form -->
-          <form class="contact-form" id="contactForm"
-                action="https://formspree.io/graphink@gmail.com"
-                method="POST" novalidate>
-            <div class="msg-success" id="successMsg" style="display:none;">Thanks — message sent! We'll reply shortly.</div>
-
-            <div class="form-row">
-              <label for="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required>
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="_replyto" type="email" placeholder="you@domain.com" required>
-            </div>
-
-            <div class="form-row">
-              <label for="project">Project brief</label>
-              <textarea id="project" name="message" placeholder="Tell us about the prints, sizes, quantities..." required></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New inquiry from Graphink website">
-            <input type="text" name="_gotcha" style="display:none" />
-
-            <div class="form-row">
-              <button class="btn btn-coral" type="submit">Send message</button>
-            </div>
-          </form>
-
-          <!-- Contact Card -->
-          <aside class="contact-card" aria-label="Contact details">
-            <h4>Quick contact</h4>
-            <p class="muted">WhatsApp</p>
-            <p style="font-weight:800;margin:6px 0;"><a style="color:var(--peach);text-decoration:none" href="https://wa.me/60123456789" target="_blank">+60 12-345 6789</a></p>
-            <p class="muted">Email</p>
-            <p style="font-weight:800;margin:6px 0;"><a style="color:var(--peach);text-decoration:none" href="mailto:graphink@gmail.com">graphink@gmail.com</a></p>
-            <p class="muted" style="margin-top:10px">Location</p>
-            <p style="font-weight:800;margin:6px 0" class="muted">Setia Alam, Selangor</p>
-          </aside>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div>© <strong>Graphink</strong> 2025 — All rights reserved</div>
-</footer>
-
-<!-- Back to top -->
-<button id="backTop" aria-label="Back to top" title="Back to top">▲</button>
-
+<!-- =====================
+   JS: Portfolio Filter
+===================== -->
 <script>
-/* IntersectionObserver: add in-view (for soft reveal if you want future CSS ties) */
-(function(){
-  const opts = { root: null, rootMargin: '0px 0px -12% 0px', threshold: 0.12 };
-  const observeTargets = document.querySelectorAll('.mockup, .card, .service-card, .contact-card, .contact-form');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('in-view');
-      }
-    });
-  }, opts);
-  observeTargets.forEach(t => io.observe(t));
-})();
-
-/* Back-to-top visibility + smooth functionality */
-(function(){
-  const back = document.getElementById('backTop');
-  const showAt = 300;
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > showAt) back.classList.add('visible'); else back.classList.remove('visible');
+function filterWorks(category){
+  const works = document.querySelectorAll('.work-item');
+  works.forEach(item=>{
+    if(category==='all'){ item.style.display='block'; }
+    else{ item.style.display = item.classList.contains(category) ? 'block' : 'none'; }
   });
-  back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-})();
-
-/* Request Quote buttons -> smooth scroll to contact form & focus */
-(function(){
-  const reqBtns = document.querySelectorAll('.btn-req');
-  reqBtns.forEach(b => b.addEventListener('click', (e)=>{
-    const target = document.getElementById('contact');
-    if(target){
-      target.scrollIntoView({behavior:'smooth', block:'start'});
-      setTimeout(()=> document.getElementById('name')?.focus(), 700);
-    }
-  }));
-  document.getElementById('heroQuote')?.addEventListener('click', ()=> {
-    document.getElementById('contact')?.scrollIntoView({behavior:'smooth', block:'start'});
-    setTimeout(()=> document.getElementById('name')?.focus(), 700);
-  });
-})();
-
-/* Basic client-side form UX: try fetch POST to Formspree then fallback */
-(function(){
-  const form = document.getElementById('contactForm');
-  const success = document.getElementById('successMsg');
-
-  form.addEventListener('submit', function(e){
-    if(!form.checkValidity()){
-      return; // let browser show validation UI
-    }
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    const orig = btn.textContent;
-    btn.textContent = 'Sending...';
-    const data = new FormData(form);
-
-    fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} })
-      .then(resp => {
-        if(resp.ok){
-          success.style.display = 'block';
-          form.reset();
-        } else {
-          form.submit();
-        }
-      })
-      .catch(()=> form.submit())
-      .finally(()=> {
-        btn.disabled = false;
-        btn.textContent = orig;
-        setTimeout(()=> success.style.display = 'none', 6000);
-      });
-  });
-})();
-
-/* Simple detail modal placeholder */
-function openDetail(name){
-  alert(name + '\n\nMore details can be added here — e.g., process, pricing, turnaround, finishes.');
+  // Highlight active button
+  const buttons = document.querySelectorAll('.filter-btns button');
+  buttons.forEach(btn=>btn.classList.remove('active'));
+  event.target.classList.add('active');
 }
-
-/* Ensure glass-card class applied to selected elements for consistency */
-(function(){
-  const selectors = ['#services .service-card', '.card', '.contact-card', '.contact-form', '.mockup .frame'];
-  selectors.forEach(sel=>{
-    document.querySelectorAll(sel).forEach(el=>{
-      if(!el.classList.contains('glass-card')) el.classList.add('glass-card');
-    });
-  });
-})();
 </script>
+
 </body>
 </html>
