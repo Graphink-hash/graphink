@@ -5,20 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GraphINK | Links</title>
 
-<!-- SEO -->
-<meta name="description" content="GraphINK – Creative design & printing studio in Malaysia. Branding, graphic design & premium print solutions.">
-<meta name="keywords" content="GraphINK, graphic design, printing, branding, Malaysia">
-
+<meta name="description" content="GraphINK – Creative design & printing studio in Malaysia.">
+<meta name="keywords" content="GraphINK, design, branding, printing">
 <meta name="theme-color" content="#000000">
-
-<!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','G-XXXXXXXXXX');
-</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -26,241 +15,344 @@ gtag('config','G-XXXXXXXXXX');
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-/* ================= COLOR TOKENS ================= */
+/* ========== TOKENS ========== */
 :root{
-  --bg:#000000;
-  --text:#ffffff;
+  --bg:#000;
+  --text:#fff;
   --muted:rgba(255,255,255,.6);
   --panel:#f5f5f5;
-  --panel-text:#000000;
+  --panel-text:#000;
 }
 @media (prefers-color-scheme: light){
   :root{
-    --bg:#ffffff;            /* PURE WHITE */
-    --text:#000000;
+    --bg:#fff;
+    --text:#000;
     --muted:rgba(0,0,0,.55);
-    --panel:#000000;
-    --panel-text:#ffffff;
+    --panel:#000;
+    --panel-text:#fff;
   }
 }
 
+/* ========== BODY ========== */
 body{
   background:var(--bg);
   color:var(--text);
   min-height:100svh;
   display:flex;
   justify-content:center;
-  padding:clamp(20px,5vw,40px);
-  overflow-x:hidden;
+  padding:clamp(16px,4vw,40px);
 }
 
-/* ================= LIQUID CMYK ================= */
-.liquid-bg{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-}
+/* ========== LIQUID CMYK ========== */
+.liquid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
 .blob{
   position:absolute;
-  width:60vmax;
-  height:60vmax;
+  width:min(70vmax,520px);
+  height:min(70vmax,520px);
   border-radius:50%;
-  filter:blur(120px);
-  opacity:.22;
-  animation:float 40s ease-in-out infinite;
+  filter:blur(140px);
+  opacity:.18;
+  animation:float 48s ease-in-out infinite;
 }
-.blob.cyan{background:#00aeef;top:-20%;left:-20%;}
-.blob.magenta{background:#ec008c;top:-25%;right:-15%;animation-delay:12s;}
-.blob.yellow{background:#fff200;bottom:-30%;left:10%;opacity:.15;animation-delay:24s;}
-
+.blob.cyan{background:#00aeef;top:-30%;left:-30%}
+.blob.magenta{background:#ec008c;top:-35%;right:-25%;animation-delay:16s}
+.blob.yellow{background:#fff200;bottom:-40%;left:20%;opacity:.12;animation-delay:32s}
 @keyframes float{
-  0%{transform:translate(0,0) scale(1);}
-  25%{transform:translate(25vw,15vh) scale(1.15);}
-  50%{transform:translate(-20vw,20vh) scale(.95);}
-  75%{transform:translate(15vw,-15vh) scale(1.1);}
-  100%{transform:translate(0,0) scale(1);}
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(18vw,12vh) scale(1.08)}
+  100%{transform:translate(0,0) scale(1)}
 }
 
-/* ================= LAYOUT ================= */
-.page{width:100%;display:flex;justify-content:center;}
-.page-inner{width:100%;display:flex;flex-direction:column;min-height:100svh;}
-.main-content{flex:1;display:flex;align-items:center;}
+/* ========== PAGE LAYOUT ========== */
+.page{
+  width:100%;
+  max-width:460px;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+}
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:clamp(10px,2vw,18px);
+}
 
-.container{width:100%;max-width:420px;text-align:center;margin:0 auto;}
-h1{font-size:28px;letter-spacing:2px;}
+/* ========== LANGUAGE TOGGLE ========== */
+.lang-toggle{
+  position:absolute;
+  top:clamp(12px,3vw,20px);
+  right:clamp(12px,3vw,20px);
+  display:flex;
+  gap:6px;
+}
+.lang-toggle button{
+  background:transparent;
+  border:1px solid var(--muted);
+  color:var(--text);
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  opacity:.6;
+}
+.lang-toggle button.active{
+  opacity:1;
+  border-color:var(--text);
+}
+
+/* ========== HEADER ========== */
+h1{
+  text-align:center;
+  font-size:clamp(22px,6vw,28px);
+  letter-spacing:2px;
+}
 .tagline{
-  font-size:13px;letter-spacing:1px;text-transform:uppercase;
-  font-weight:600;opacity:.8;margin:6px 0 12px;
+  text-align:center;
+  font-size:clamp(11px,3.2vw,13px);
+  font-weight:600;
+  opacity:.8;
 }
-.about{font-size:14px;opacity:.9;line-height:1.6;margin-bottom:18px}
 
-/* ================= SOCIAL ================= */
-.social-icons{display:flex;justify-content:center;gap:22px;margin-bottom:24px}
+/* ========== ABOUT ========== */
+.about{
+  text-align:center;
+  font-size:clamp(13px,3.6vw,14px);
+  line-height:1.6;
+  opacity:0;
+  transform:translateY(6px);
+  animation:aboutFade .8s ease forwards;
+}
+@keyframes aboutFade{
+  to{opacity:.9;transform:translateY(0)}
+}
+
+/* ========== SOCIAL ========== */
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:clamp(16px,5vw,22px);
+}
 .social-icons a{
   color:var(--muted);
-  font-size:22px;
-  transition:.25s;
+  font-size:clamp(18px,5vw,22px);
 }
-.social-icons a:hover{opacity:1;transform:translateY(-2px)}
 
-/* ================= WHATSAPP ================= */
-.wa-wrapper{width:100%;margin-bottom:12px;position:relative}
+/* ========== WHATSAPP ========== */
+.wa-wrapper{}
 #wa-toggle{display:none}
-
 .wa-main{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  background:var(--panel);color:var(--panel-text);
-  padding:14px 16px;border-radius:10px;
-  font-size:14px;font-weight:600;
-  cursor:pointer;position:relative;
-  transition:.25s;
-  box-shadow:
-    0 2px 6px rgba(0,0,0,.18),
-    0 1px 0 rgba(255,255,255,.15);
+  background:var(--panel);
+  color:var(--panel-text);
+  padding:clamp(12px,3vw,14px);
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  font-weight:600;
+  font-size:clamp(13px,3.6vw,14px);
+  cursor:pointer;
 }
-.wa-main:hover{transform:translateY(-1px)}
-.wa-main i.fa-whatsapp{color:#25D366}
-.wa-arrow{position:absolute;right:16px;transition:.3s}
-#wa-toggle:checked + label .wa-arrow{transform:rotate(180deg)}
-
+.wa-main i{color:#25D366}
 .wa-options{display:grid;grid-template-rows:0fr;transition:.3s}
 #wa-toggle:checked ~ .wa-options{grid-template-rows:1fr}
 .wa-options-inner{
-  overflow:hidden;display:flex;flex-direction:column;
-  gap:8px;margin-top:10px;
+  overflow:hidden;
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 .wa-option{
-  background:var(--panel);color:var(--panel-text);
-  padding:12px;border-radius:8px;
-  font-size:13px;font-weight:600;text-decoration:none;
-  display:flex;justify-content:center;gap:6px;
-  transition:.25s;
-  box-shadow:
-    0 2px 6px rgba(0,0,0,.18),
-    0 1px 0 rgba(255,255,255,.15);
+  background:var(--panel);
+  color:var(--panel-text);
+  padding:clamp(10px,3vw,12px);
+  border-radius:10px;
+  text-align:center;
+  font-size:clamp(12px,3.4vw,13px);
+  font-weight:600;
+  text-decoration:none;
 }
-.wa-option i{color:#25D366}
-.wa-option:hover{opacity:.85;transform:translateY(-1px)}
 
-/* ================= CTA & SECTIONS ================= */
-.wa-cta{margin:14px 0 28px;font-size:14px;opacity:.9}
+/* ========== CTA ========== */
+.project-cta{
+  text-align:center;
+  font-size:clamp(13px,3.6vw,14px);
+  opacity:.85;
+}
+.project-cta span{opacity:.6}
 
-.section{margin-bottom:18px}
+/* ========== INFOGRAPHIC ========== */
+.section{}
 .section h3{
-  font-size:12px;letter-spacing:1px;
-  text-transform:uppercase;opacity:.7;margin-bottom:6px;
+  text-align:center;
+  font-size:clamp(11px,3vw,12px);
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:.7;
 }
-.section p{font-size:14px;opacity:.9;line-height:1.6}
+.infographic{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(8px,2.4vw,14px);
+}
+.info-item{
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:clamp(10px,3vw,16px);
+  text-align:center;
+}
+@media (prefers-color-scheme: light){
+  .info-item{background:rgba(0,0,0,.035);border-color:rgba(0,0,0,.08)}
+}
+.info-item i{
+  font-size:clamp(18px,5vw,22px);
+  margin-bottom:6px;
+  display:block;
+}
+.info-item span{
+  font-size:clamp(11px,3vw,12px);
+  font-weight:600;
+}
 
-/* ================= FOOTER ================= */
-.footer-wrap{display:flex;justify-content:center;margin-top:auto;margin-bottom:18px}
-.footer-inner{
-  width:100%;max-width:420px;
-  display:flex;flex-direction:column;
-  align-items:center;gap:6px;opacity:.6;
+/* ========== FOOTER ========== */
+.footer{
+  text-align:center;
+  opacity:.6;
+  margin-top:clamp(10px,3vw,14px);
 }
-.footer-logo{height:20px}
-@media (prefers-color-scheme: dark){.footer-logo{filter:invert(1)}}
-@media (prefers-color-scheme: light){.footer-logo{filter:invert(0)}}
-.footer-text{font-size:12px;text-align:center}
+.footer img{height:18px}
+.footer p{font-size:11px;margin-top:4px}
 </style>
 </head>
 
 <body>
 
-<!-- LIQUID CMYK BACKGROUND -->
 <div class="liquid-bg">
   <div class="blob cyan"></div>
   <div class="blob magenta"></div>
   <div class="blob yellow"></div>
 </div>
 
-<div class="page">
-<div class="page-inner">
+<div class="lang-toggle">
+  <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
+  <button id="bmBtn" onclick="setLang('bm')">BM</button>
+</div>
 
-<div class="main-content">
-<div class="container">
+<div class="page">
+<div class="main">
 
 <h1>GRAPHINK</h1>
-<div class="tagline">Ink Your Ideas</div>
+<div class="tagline" id="tagline"></div>
 
-<div class="about">
-GraphINK is a creative design & printing studio helping individuals and businesses
-bring ideas to life through impactful design and premium print quality.
-</div>
+<div class="about" id="aboutText"></div>
 
 <div class="social-icons">
-<a href="#" aria-label="GraphINK Instagram"><i class="fab fa-instagram"></i></a>
-<a href="#" aria-label="GraphINK Facebook"><i class="fab fa-facebook-f"></i></a>
-<a href="#" aria-label="GraphINK TikTok"><i class="fab fa-tiktok"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
 </div>
 
-<div class="wa-wrapper" id="waBox">
+<div class="wa-wrapper">
 <input type="checkbox" id="wa-toggle">
-
-<label for="wa-toggle" class="wa-main">
-<i class="fab fa-whatsapp"></i> Chat on WhatsApp
-<i class="fas fa-chevron-down wa-arrow"></i>
+<label for="wa-toggle" class="wa-main" id="waBtn">
+<i class="fab fa-whatsapp"></i>
 </label>
-
 <div class="wa-options">
 <div class="wa-options-inner">
-<a class="wa-option" onclick="trackWA('sales');closeWA()"
-href="https://wa.me/601115748863?text=Hi%20GraphINK,%20I%20need%20help%20with%20sales">
-<i class="fab fa-whatsapp"></i> Sales
-</a>
-<a class="wa-option" onclick="trackWA('design');closeWA()"
-href="https://wa.me/60199083295?text=Hi%20GraphINK,%20I%20need%20help%20with%20design">
-<i class="fab fa-whatsapp"></i> Design
-</a>
-<a class="wa-option" onclick="trackWA('printing');closeWA()"
-href="https://wa.me/601115748863?text=Hi%20GraphINK,%20I%20need%20help%20with%20printing">
-<i class="fab fa-whatsapp"></i> Printing
-</a>
+<a class="wa-option" id="waSales" href="https://wa.me/601115748863"></a>
+<a class="wa-option" id="waDesign" href="https://wa.me/60199083295"></a>
+<a class="wa-option" id="waPrint" href="https://wa.me/601115748863"></a>
 </div>
 </div>
 </div>
 
-<div class="wa-cta">Have a project in mind? Let’s work together.</div>
+<div class="project-cta" id="ctaText"></div>
 
 <div class="section">
-<h3>Our Services</h3>
-<p>• Graphic Design & Branding<br>• Printing & Custom Materials<br>• Creative Consultation</p>
+<h3 id="servicesTitle"></h3>
+<div class="infographic">
+  <div class="info-item"><i class="fas fa-pen-nib"></i><span id="s1"></span></div>
+  <div class="info-item"><i class="fas fa-print"></i><span id="s2"></span></div>
+  <div class="info-item"><i class="fas fa-lightbulb"></i><span id="s3"></span></div>
+</div>
 </div>
 
 <div class="section">
-<h3>Why Choose Us</h3>
-<p>• Creative & Professional<br>• Custom & Flexible<br>• Fast & Affordable</p>
-</div>
-
-</div>
-</div>
-
-<div class="footer-wrap">
-<div class="footer-inner">
-<img src="logo.png" alt="GraphINK Logo" class="footer-logo">
-<div class="footer-text">© 2026 GraphINK · Malaysia</div>
+<h3 id="whyTitle"></h3>
+<div class="infographic">
+  <div class="info-item"><i class="fas fa-palette"></i><span id="w1"></span></div>
+  <div class="info-item"><i class="fas fa-sliders-h"></i><span id="w2"></span></div>
+  <div class="info-item"><i class="fas fa-bolt"></i><span id="w3"></span></div>
 </div>
 </div>
 
 </div>
+
+<div class="footer">
+<img src="logo.png" alt="GraphINK logo">
+<p>© 2026 GraphINK · Malaysia</p>
+</div>
+
 </div>
 
 <script>
-function trackWA(type){
-  if(typeof gtag==="function"){
-    gtag('event','whatsapp_click',{event_label:type});
-  }
+const lang={
+en:{
+tagline:"Ink Your Ideas",
+about:"GraphINK is a creative studio focused on design, branding, and print—transforming ideas into bold, purposeful visuals that leave a lasting impression.",
+wa:"Chat on WhatsApp",
+cta:"Have a project in mind?<br><span>Let’s work together.</span>",
+services:"Our Services",
+why:"Why Choose Us",
+s1:"Branding<br>& Design",
+s2:"Printing<br>& Materials",
+s3:"Creative<br>Consultation",
+w1:"Creative<br>& Professional",
+w2:"Custom<br>& Flexible",
+w3:"Fast<br>& Affordable",
+sales:"Sales",
+design:"Design",
+print:"Printing"
+},
+bm:{
+tagline:"Serlahkan Idea Anda",
+about:"GraphINK ialah studio kreatif yang memfokuskan kepada reka bentuk, penjenamaan dan percetakan—menjadikan idea kepada visual yang berani, bermakna dan memberi impak.",
+wa:"Hubungi Kami di WhatsApp",
+cta:"Ada projek dalam fikiran?<br><span>Jom bekerjasama.</span>",
+services:"Perkhidmatan Kami",
+why:"Kenapa Pilih Kami",
+s1:"Penjenamaan<br>& Reka Bentuk",
+s2:"Percetakan<br>& Bahan",
+s3:"Konsultasi<br>Kreatif",
+w1:"Kreatif<br>& Profesional",
+w2:"Fleksibel<br>& Tersuai",
+w3:"Pantas<br>& Berpatutan",
+sales:"Jualan",
+design:"Reka Bentuk",
+print:"Percetakan"
 }
-function closeWA(){
-  setTimeout(()=>{document.getElementById('wa-toggle').checked=false;},200);
+};
+
+function setLang(l){
+const d=lang[l];
+tagline.innerHTML=d.tagline;
+aboutText.innerHTML=d.about;
+waBtn.innerHTML='<i class="fab fa-whatsapp"></i> '+d.wa;
+ctaText.innerHTML=d.cta;
+servicesTitle.innerText=d.services;
+whyTitle.innerText=d.why;
+s1.innerHTML=d.s1; s2.innerHTML=d.s2; s3.innerHTML=d.s3;
+w1.innerHTML=d.w1; w2.innerHTML=d.w2; w3.innerHTML=d.w3;
+waSales.innerText=d.sales;
+waDesign.innerText=d.design;
+waPrint.innerText=d.print;
+enBtn.classList.toggle("active",l==="en");
+bmBtn.classList.toggle("active",l==="bm");
 }
-document.addEventListener('click',e=>{
-  const box=document.getElementById('waBox');
-  const toggle=document.getElementById('wa-toggle');
-  if(toggle.checked && !box.contains(e.target)){toggle.checked=false;}
-});
+setLang("en");
 </script>
 
 </body>
