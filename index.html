@@ -90,21 +90,14 @@ body{
   z-index:1;
 }
 
-/* =====================
-   LOGO HERO
-   ===================== */
-.logo-section{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-bottom:14px;
+.logo{
+  max-width:120px;
+  margin:0 auto 18px;
 }
 
-.logo-main{
-  max-width:160px; /* adjust 140–180 if needed */
-  width:100%;
-  height:auto;
-  margin-bottom:6px;
+h1{
+  font-size:30px;
+  letter-spacing:2px;
 }
 
 .tagline{
@@ -113,14 +106,14 @@ body{
   text-transform:uppercase;
   font-weight:600;
   opacity:.75;
+  margin:6px 0 12px;
 }
 
-/* ABOUT */
 .about{
   font-size:14px;
   opacity:.85;
   line-height:1.6;
-  margin:14px 0 18px;
+  margin-bottom:18px;
 }
 
 /* =====================
@@ -128,16 +121,16 @@ body{
    ===================== */
 .crystal{
   position:relative;
-  background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.3); /* 30% opacity */
   backdrop-filter:blur(28px) saturate(180%);
   -webkit-backdrop-filter:blur(28px) saturate(180%);
   border-radius:999px;
   border:1px solid rgba(255,255,255,.35);
-  box-shadow:0 2px 6px rgba(0,0,0,.25);
+  box-shadow:0 2px 6px rgba(0,0,0,.25); /* very thin shadow */
   overflow:hidden;
 }
 
-/* EDGE GLOW */
+/* EDGE GLOW ANIMATION */
 .crystal::before{
   content:"";
   position:absolute;
@@ -148,9 +141,9 @@ body{
     linear-gradient(
       120deg,
       transparent,
-      rgba(255,255,255,.7),
+      rgba(255,255,255,.6),
       transparent,
-      rgba(255,255,255,.7),
+      rgba(255,255,255,.6),
       transparent
     );
   -webkit-mask:
@@ -158,7 +151,7 @@ body{
     linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
-  animation:edgeGlow 7s linear infinite;
+  animation:edgeGlow 6s linear infinite;
   pointer-events:none;
 }
 
@@ -216,6 +209,7 @@ body{
   color:#25D366;
 }
 
+/* Divider */
 .wa-item:not(:last-child)::after{
   content:"";
   position:absolute;
@@ -233,9 +227,9 @@ body{
   margin-bottom:24px;
 }
 
-/* TEXT SECTIONS */
+/* SECTIONS */
 .section{
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
 .section h3{
   font-size:13px;
@@ -250,9 +244,9 @@ body{
   line-height:1.6;
 }
 
-/* FOOTER */
+/* CTA + FOOTER */
 .bottom-cta{
-  margin-top:24px;
+  margin-top:28px;
   font-size:14px;
   opacity:.85;
 }
@@ -260,6 +254,46 @@ body{
   margin-top:10px;
   font-size:12px;
   opacity:.5;
+}
+
+/* =====================
+   LIGHT MODE
+   ===================== */
+@media (prefers-color-scheme: light){
+  body{
+    background:#fff;
+    color:#000;
+  }
+
+  .glow{
+    opacity:.14;
+    filter:blur(200px);
+  }
+
+  .crystal{
+    background:rgba(255,255,255,0.35);
+    border:1px solid rgba(0,0,0,.15);
+    box-shadow:0 2px 6px rgba(0,0,0,.18);
+  }
+
+  .wa-item,
+  .social-icons a{
+    color:#000;
+  }
+
+  .wa-item:not(:last-child)::after{
+    background:rgba(0,0,0,.2);
+  }
+
+  .chat-hint{
+    color:#000;
+    opacity:.5;
+  }
+
+  .footer{
+    color:#000;
+    opacity:.6;
+  }
 }
 </style>
 </head>
@@ -276,11 +310,10 @@ body{
   <div class="page-inner fade">
     <div class="container">
 
-      <!-- LOGO HERO -->
-      <div class="logo-section">
-        <img src="logo.png" alt="GraphINK Logo" class="logo-main">
-        <div class="tagline">“Ink Your Ideas”</div>
-      </div>
+      <img src="logo.png" alt="GraphINK Logo" class="logo">
+
+      <h1>GRAPHINK</h1>
+      <div class="tagline">“Ink Your Ideas”</div>
 
       <div class="about">
         GraphINK is a creative design & printing studio helping individuals and businesses
