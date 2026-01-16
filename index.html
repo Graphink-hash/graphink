@@ -12,14 +12,8 @@
 <meta name="theme-color" content="#000000">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-/* BASE */
 body{
   background:#000;
   color:#fff;
@@ -30,23 +24,20 @@ body{
   overflow-x:hidden;
 }
 
-/* CENTER */
 .page{width:100%;display:flex;justify-content:center;}
 .page-inner{margin:auto 0;}
 
-/* FADE */
 .fade{animation:fadeIn .35s ease forwards;opacity:0;}
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(6px);}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* CMYK GLOW */
+/* BACKGROUND */
 .bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;}
 .glow{
   position:absolute;
-  width:700px;
-  height:700px;
+  width:700px;height:700px;
   filter:blur(160px);
   opacity:.18;
   animation:float 60s ease-in-out infinite;
@@ -60,10 +51,17 @@ body{
   100%{transform:translate(0,0);}
 }
 
-/* CONTENT */
-.container{width:100%;max-width:420px;text-align:center;position:relative;z-index:1;}
+.container{
+  width:100%;
+  max-width:420px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+
 .logo{max-width:120px;margin:0 auto 18px;}
 h1{font-size:30px;letter-spacing:2px;}
+
 .tagline{
   font-size:14px;
   letter-spacing:1px;
@@ -72,6 +70,7 @@ h1{font-size:30px;letter-spacing:2px;}
   opacity:.75;
   margin:6px 0 12px;
 }
+
 .about{
   font-size:14px;
   opacity:.85;
@@ -79,7 +78,7 @@ h1{font-size:30px;letter-spacing:2px;}
   margin-bottom:18px;
 }
 
-/* CRYSTAL */
+/* GLASS */
 .crystal{
   position:relative;
   background:rgba(255,255,255,0.3);
@@ -110,7 +109,6 @@ h1{font-size:30px;letter-spacing:2px;}
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   animation:edgeGlow 6s linear infinite;
-  pointer-events:none;
 }
 @keyframes edgeGlow{
   0%{background-position:0% 50%;}
@@ -125,8 +123,7 @@ h1{font-size:30px;letter-spacing:2px;}
   margin-bottom:22px;
 }
 .social-icons a{
-  width:38px;
-  height:38px;
+  width:38px;height:38px;
   border-radius:50%;
   color:#000;
   display:flex;
@@ -169,7 +166,6 @@ h1{font-size:30px;letter-spacing:2px;}
 
 .chat-hint{font-size:12px;opacity:.45;margin-bottom:24px;}
 
-/* SECTIONS */
 .section{margin-bottom:18px;}
 .section h3{
   font-size:13px;
@@ -183,18 +179,10 @@ h1{font-size:30px;letter-spacing:2px;}
 .bottom-cta{margin-top:28px;font-size:14px;opacity:.85;}
 .footer{margin-top:10px;font-size:12px;opacity:.5;}
 
-/* LIGHT MODE */
 @media (prefers-color-scheme: light){
   body{background:#fff;color:#000;}
-  .glow{opacity:.14;filter:blur(200px);}
-  .crystal{
-    background:rgba(255,255,255,0.35);
-    border:1px solid rgba(0,0,0,.15);
-    box-shadow:0 2px 6px rgba(0,0,0,.18);
-  }
+  .crystal{background:rgba(255,255,255,0.35);}
   .wa-item,.social-icons a{color:#000;}
-  .wa-item:not(:last-child)::after{background:rgba(0,0,0,.2);}
-  .chat-hint,.footer{color:#000;}
 }
 </style>
 </head>
@@ -227,15 +215,15 @@ h1{font-size:30px;letter-spacing:2px;}
         <a href="#" class="crystal"><i class="fab fa-tiktok"></i></a>
       </div>
 
-      <!-- UPDATED WHATSAPP -->
+      <!-- WHATSAPP AUTO MESSAGE -->
       <div class="wa-combined crystal">
-        <a class="wa-item" href="https://wa.me/601115748863">
+        <a class="wa-item" href="https://wa.me/601115748863?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
           <i class="fab fa-whatsapp"></i> Sales
         </a>
-        <a class="wa-item" href="https://wa.me/60199083295">
+        <a class="wa-item" href="https://wa.me/60199083295?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
           <i class="fab fa-whatsapp"></i> Design
         </a>
-        <a class="wa-item" href="https://wa.me/601115748863">
+        <a class="wa-item" href="https://wa.me/601115748863?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
           <i class="fab fa-whatsapp"></i> Printing
         </a>
       </div>
