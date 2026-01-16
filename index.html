@@ -59,32 +59,14 @@ body{
   z-index:1;
 }
 
-.logo{max-width:120px;margin:0 auto 18px;}
-h1{font-size:30px;letter-spacing:2px;}
-
-.tagline{
-  font-size:14px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  font-weight:600;
-  opacity:.75;
-  margin:6px 0 12px;
-}
-
-.about{
-  font-size:14px;
-  opacity:.85;
-  line-height:1.6;
-  margin-bottom:18px;
-}
-
-/* GLASS */
+/* =====================
+   GLASS BASE
+===================== */
 .crystal{
   position:relative;
   background:rgba(255,255,255,0.3);
   backdrop-filter:blur(28px) saturate(180%);
   -webkit-backdrop-filter:blur(28px) saturate(180%);
-  border-radius:999px;
   border:1px solid rgba(255,255,255,.35);
   box-shadow:0 2px 6px rgba(0,0,0,.25);
   overflow:hidden;
@@ -113,6 +95,43 @@ h1{font-size:30px;letter-spacing:2px;}
 @keyframes edgeGlow{
   0%{background-position:0% 50%;}
   100%{background-position:200% 50%;}
+}
+
+/* =====================
+   LOGO – SQUARE GLASS
+===================== */
+.logo-glass{
+  width:110px;
+  height:110px;
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+}
+.logo{
+  max-width:70px;
+  max-height:70px;
+  transition:filter .25s ease;
+}
+
+/* TEXT */
+h1{font-size:30px;letter-spacing:2px;}
+
+.tagline{
+  font-size:14px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-weight:600;
+  opacity:.75;
+  margin:6px 0 12px;
+}
+
+.about{
+  font-size:14px;
+  opacity:.85;
+  line-height:1.6;
+  margin-bottom:18px;
 }
 
 /* SOCIAL */
@@ -179,10 +198,12 @@ h1{font-size:30px;letter-spacing:2px;}
 .bottom-cta{margin-top:28px;font-size:14px;opacity:.85;}
 .footer{margin-top:10px;font-size:12px;opacity:.5;}
 
+/* 🌞 LIGHT MODE – AUTO INVERT LOGO */
 @media (prefers-color-scheme: light){
   body{background:#fff;color:#000;}
   .crystal{background:rgba(255,255,255,0.35);}
   .wa-item,.social-icons a{color:#000;}
+  .logo{filter:invert(1) brightness(1.1);}
 }
 </style>
 </head>
@@ -199,7 +220,10 @@ h1{font-size:30px;letter-spacing:2px;}
   <div class="page-inner fade">
     <div class="container">
 
-      <img src="logo.png" alt="GraphINK Logo" class="logo">
+      <!-- SQUARE GLASS LOGO -->
+      <div class="logo-glass crystal">
+        <img src="logo.png" alt="GraphINK Logo" class="logo">
+      </div>
 
       <h1>GRAPHINK</h1>
       <div class="tagline">Ink Your Ideas</div>
@@ -215,7 +239,6 @@ h1{font-size:30px;letter-spacing:2px;}
         <a href="#" class="crystal"><i class="fab fa-tiktok"></i></a>
       </div>
 
-      <!-- WHATSAPP AUTO MESSAGE -->
       <div class="wa-combined crystal">
         <a class="wa-item" href="https://wa.me/601115748863?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
           <i class="fab fa-whatsapp"></i> Sales
