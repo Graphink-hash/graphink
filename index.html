@@ -19,6 +19,9 @@
   font-family:'Poppins',sans-serif;
 }
 
+/* =====================
+   BASE
+   ===================== */
 body{
   background:#000;
   color:#fff;
@@ -29,7 +32,7 @@ body{
   overflow-x:hidden;
 }
 
-/* PAGE CENTER */
+/* CENTER */
 .page{
   width:100%;
   display:flex;
@@ -49,31 +52,53 @@ body{
   to{opacity:1; transform:translateY(0);}
 }
 
-/* SUBTLE CMYK GLOW */
+/* =====================
+   CMYK GLOW (STRONGER)
+   ===================== */
 .bg-glow{
   position:fixed;
   inset:0;
   z-index:-1;
   pointer-events:none;
 }
+
 .glow{
   position:absolute;
-  width:520px;
-  height:520px;
-  filter:blur(180px);
-  opacity:.12;
-  animation:float 60s ease-in-out infinite;
+  width:640px;              /* bigger */
+  height:640px;
+  filter:blur(150px);       /* less blur = stronger */
+  opacity:.18;              /* stronger glow */
+  animation:float 55s ease-in-out infinite;
 }
-.cyan{background:#00aeef; top:-200px; left:-200px;}
-.magenta{background:#ec008c; bottom:-220px; right:-220px; animation-delay:20s;}
-.yellow{background:#fff200; top:45%; right:-260px; opacity:.08; animation-delay:40s;}
+
+.cyan{
+  background:#00aeef;
+  top:-240px;
+  left:-240px;
+}
+
+.magenta{
+  background:#ec008c;
+  bottom:-260px;
+  right:-260px;
+  animation-delay:18s;
+}
+
+.yellow{
+  background:#fff200;
+  top:45%;
+  right:-300px;
+  opacity:.12;              /* yellow softer */
+  animation-delay:36s;
+}
+
 @keyframes float{
   0%{transform:translate(0,0);}
-  50%{transform:translate(80px,60px);}
+  50%{transform:translate(120px,90px);}
   100%{transform:translate(0,0);}
 }
 
-/* CONTAINER */
+/* CONTENT */
 .container{
   width:100%;
   max-width:420px;
@@ -88,13 +113,11 @@ body{
   margin:0 auto 18px;
 }
 
-/* TITLE */
+/* TEXT */
 h1{
   font-size:30px;
   letter-spacing:2px;
 }
-
-/* TAGLINE */
 .tagline{
   font-size:14px;
   letter-spacing:1px;
@@ -103,8 +126,6 @@ h1{
   opacity:.75;
   margin:6px 0 12px;
 }
-
-/* ABOUT */
 .about{
   font-size:14px;
   opacity:.85;
@@ -112,7 +133,7 @@ h1{
   margin-bottom:18px;
 }
 
-/* SOCIAL ICONS */
+/* SOCIAL */
 .social-icons{
   display:flex;
   justify-content:center;
@@ -142,7 +163,6 @@ h1{
   box-shadow:0 10px 25px rgba(0,0,0,.35);
   margin-bottom:6px;
 }
-
 .wa-item{
   flex:1;
   text-decoration:none;
@@ -155,17 +175,14 @@ h1{
   justify-content:center;
   gap:6px;
 }
-
 .wa-item i{
-  font-size:14px;
   color:#25D366;
 }
-
 .wa-item:not(:last-child){
   border-right:1px solid rgba(0,0,0,.12);
 }
 
-/* TAP HINT */
+/* HINT */
 .chat-hint{
   font-size:12px;
   opacity:.45;
@@ -200,6 +217,60 @@ h1{
   font-size:12px;
   opacity:.5;
 }
+
+/* =====================
+   LIGHT MODE (GLOW KEKAL)
+   ===================== */
+@media (prefers-color-scheme: light){
+
+  body{
+    background:#ffffff;
+    color:#000000;
+  }
+
+  /* Glow visible but softer on white */
+  .glow{
+    opacity:.12;
+    filter:blur(190px);
+  }
+
+  h1,
+  .tagline,
+  .about,
+  .section p,
+  .bottom-cta{
+    color:#000000;
+  }
+
+  .social-icons a{
+    background:#000000;
+    color:#ffffff;
+    box-shadow:0 6px 16px rgba(0,0,0,.15);
+  }
+
+  .wa-combined{
+    background:#000000;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+  }
+
+  .wa-item{
+    color:#ffffff;
+  }
+
+  .wa-item:not(:last-child){
+    border-right:1px solid rgba(255,255,255,.25);
+  }
+
+  .chat-hint{
+    color:#000000;
+    opacity:.5;
+  }
+
+  .footer{
+    color:#000000;
+    opacity:.6;
+  }
+}
 </style>
 </head>
 
@@ -231,20 +302,14 @@ h1{
         <a href="#"><i class="fab fa-tiktok"></i></a>
       </div>
 
-      <!-- WHATSAPP BUTTON (ICON + LABEL) -->
       <div class="wa-combined">
-        <a class="wa-item"
-           href="https://wa.me/60199083295?text=Hi%20GraphINK%2C%20I%20would%20like%20to%20ask%20about%20pricing%2C%20quantity%2C%20and%20timeline.">
+        <a class="wa-item" href="https://wa.me/60199083295">
           <i class="fab fa-whatsapp"></i> Sales
         </a>
-
-        <a class="wa-item"
-           href="https://wa.me/60123456789?text=Hi%20GraphINK%2C%20I%20need%20help%20with%20design%20concept%2C%20references%2C%20and%20deadline.">
+        <a class="wa-item" href="https://wa.me/60123456789">
           <i class="fab fa-whatsapp"></i> Design
         </a>
-
-        <a class="wa-item"
-           href="https://wa.me/60111111111?text=Hi%20GraphINK%2C%20I%20would%20like%20to%20ask%20about%20printing%20size%2C%20material%2C%20and%20quantity.">
+        <a class="wa-item" href="https://wa.me/60111111111">
           <i class="fab fa-whatsapp"></i> Printing
         </a>
       </div>
