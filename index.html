@@ -5,18 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GraphINK | Links</title>
 
+<!-- SEO -->
+<meta name="description" content="GraphINK ñ Creative design & printing studio in Malaysia. Branding, graphic design & premium print solutions.">
+<meta name="keywords" content="GraphINK, graphic design, printing, branding, Malaysia">
+
+<meta name="theme-color" content="#000000">
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-XXXXXXXXXX');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="icon" type="image/png" href="favicon.png">
-<meta name="theme-color" content="#000000">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+/* ================= COLOR TOKENS ================= */
+:root{
+  --bg:#000000;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.6);
+  --panel:#f5f5f5;
+  --panel-text:#000000;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#ffffff;            /* PURE WHITE */
+    --text:#000000;
+    --muted:rgba(0,0,0,.55);
+    --panel:#000000;
+    --panel-text:#ffffff;
+  }
+}
 
 body{
-  background:#000;
-  color:#fff;
+  background:var(--bg);
+  color:var(--text);
   min-height:100svh;
   display:flex;
   justify-content:center;
@@ -24,264 +54,214 @@ body{
   overflow-x:hidden;
 }
 
-.page{width:100%;display:flex;justify-content:center;}
-.page-inner{margin:auto 0;}
-
-.fade{animation:fadeIn .35s ease forwards;opacity:0;}
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(6px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-/* BACKGROUND */
-.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;}
-.glow{
-  position:absolute;
-  width:700px;height:700px;
-  filter:blur(160px);
-  opacity:.18;
-  animation:float 60s ease-in-out infinite;
-}
-.cyan{background:#00aeef;top:-260px;left:-260px;}
-.magenta{background:#ec008c;bottom:-280px;right:-280px;animation-delay:20s;}
-.yellow{background:#fff200;top:45%;right:-320px;opacity:.12;animation-delay:40s;}
-@keyframes float{
-  0%{transform:translate(0,0);}
-  50%{transform:translate(140px,100px);}
-  100%{transform:translate(0,0);}
-}
-
-.container{
-  width:100%;
-  max-width:420px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
-
-/* =====================
-   GLASS BASE
-===================== */
-.crystal{
-  position:relative;
-  background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(28px) saturate(180%);
-  -webkit-backdrop-filter:blur(28px) saturate(180%);
-  border:1px solid rgba(255,255,255,.35);
-  box-shadow:0 2px 6px rgba(0,0,0,.25);
-  overflow:hidden;
-}
-.crystal::before{
-  content:"";
-  position:absolute;
+/* ================= LIQUID CMYK ================= */
+.liquid-bg{
+  position:fixed;
   inset:0;
-  padding:1px;
-  border-radius:inherit;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.6),
-    transparent,
-    rgba(255,255,255,.6),
-    transparent
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  animation:edgeGlow 6s linear infinite;
+  z-index:-1;
+  pointer-events:none;
 }
-@keyframes edgeGlow{
-  0%{background-position:0% 50%;}
-  100%{background-position:200% 50%;}
-}
-
-/* =====================
-   LOGO ‚Äì SQUARE GLASS
-===================== */
-.logo-glass{
-  width:110px;
-  height:110px;
-  margin:0 auto 18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:20px;
-}
-.logo{
-  max-width:70px;
-  max-height:70px;
-  transition:filter .25s ease;
-}
-
-/* TEXT */
-h1{font-size:30px;letter-spacing:2px;}
-
-.tagline{
-  font-size:14px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  font-weight:600;
-  opacity:.75;
-  margin:6px 0 12px;
-}
-
-.about{
-  font-size:14px;
-  opacity:.85;
-  line-height:1.6;
-  margin-bottom:18px;
-}
-
-/* SOCIAL */
-.social-icons{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin-bottom:22px;
-}
-.social-icons a{
-  width:38px;height:38px;
-  border-radius:50%;
-  color:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:15px;
-}
-
-/* WHATSAPP */
-.wa-combined{
-  display:flex;
-  width:100%;
-  border-radius:999px;
-  overflow:hidden;
-  margin-bottom:6px;
-}
-.wa-item{
-  flex:1;
-  text-decoration:none;
-  color:#000;
-  padding:14px 6px;
-  font-size:13px;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  position:relative;
-}
-.wa-item i{color:#25D366;}
-.wa-item:not(:last-child)::after{
-  content:"";
+.blob{
   position:absolute;
-  right:0;
-  top:22%;
-  width:1px;
-  height:56%;
-  background:rgba(255,255,255,.5);
+  width:60vmax;
+  height:60vmax;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.22;
+  animation:float 40s ease-in-out infinite;
+}
+.blob.cyan{background:#00aeef;top:-20%;left:-20%;}
+.blob.magenta{background:#ec008c;top:-25%;right:-15%;animation-delay:12s;}
+.blob.yellow{background:#fff200;bottom:-30%;left:10%;opacity:.15;animation-delay:24s;}
+
+@keyframes float{
+  0%{transform:translate(0,0) scale(1);}
+  25%{transform:translate(25vw,15vh) scale(1.15);}
+  50%{transform:translate(-20vw,20vh) scale(.95);}
+  75%{transform:translate(15vw,-15vh) scale(1.1);}
+  100%{transform:translate(0,0) scale(1);}
 }
 
-.chat-hint{font-size:12px;opacity:.45;margin-bottom:24px;}
+/* ================= LAYOUT ================= */
+.page{width:100%;display:flex;justify-content:center;}
+.page-inner{width:100%;display:flex;flex-direction:column;min-height:100svh;}
+.main-content{flex:1;display:flex;align-items:center;}
 
-.section{margin-bottom:18px;}
+.container{width:100%;max-width:420px;text-align:center;margin:0 auto;}
+h1{font-size:28px;letter-spacing:2px;}
+.tagline{
+  font-size:13px;letter-spacing:1px;text-transform:uppercase;
+  font-weight:600;opacity:.8;margin:6px 0 12px;
+}
+.about{font-size:14px;opacity:.9;line-height:1.6;margin-bottom:18px}
+
+/* ================= SOCIAL ================= */
+.social-icons{display:flex;justify-content:center;gap:22px;margin-bottom:24px}
+.social-icons a{
+  color:var(--muted);
+  font-size:22px;
+  transition:.25s;
+}
+.social-icons a:hover{opacity:1;transform:translateY(-2px)}
+
+/* ================= WHATSAPP ================= */
+.wa-wrapper{width:100%;margin-bottom:12px;position:relative}
+#wa-toggle{display:none}
+
+.wa-main{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--panel);color:var(--panel-text);
+  padding:14px 16px;border-radius:10px;
+  font-size:14px;font-weight:600;
+  cursor:pointer;position:relative;
+  transition:.25s;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.18),
+    0 1px 0 rgba(255,255,255,.15);
+}
+.wa-main:hover{transform:translateY(-1px)}
+.wa-main i.fa-whatsapp{color:#25D366}
+.wa-arrow{position:absolute;right:16px;transition:.3s}
+#wa-toggle:checked + label .wa-arrow{transform:rotate(180deg)}
+
+.wa-options{display:grid;grid-template-rows:0fr;transition:.3s}
+#wa-toggle:checked ~ .wa-options{grid-template-rows:1fr}
+.wa-options-inner{
+  overflow:hidden;display:flex;flex-direction:column;
+  gap:8px;margin-top:10px;
+}
+.wa-option{
+  background:var(--panel);color:var(--panel-text);
+  padding:12px;border-radius:8px;
+  font-size:13px;font-weight:600;text-decoration:none;
+  display:flex;justify-content:center;gap:6px;
+  transition:.25s;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.18),
+    0 1px 0 rgba(255,255,255,.15);
+}
+.wa-option i{color:#25D366}
+.wa-option:hover{opacity:.85;transform:translateY(-1px)}
+
+/* ================= CTA & SECTIONS ================= */
+.wa-cta{margin:14px 0 28px;font-size:14px;opacity:.9}
+
+.section{margin-bottom:18px}
 .section h3{
-  font-size:13px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  opacity:.6;
-  margin-bottom:6px;
+  font-size:12px;letter-spacing:1px;
+  text-transform:uppercase;opacity:.7;margin-bottom:6px;
 }
-.section p{font-size:14px;opacity:.85;line-height:1.6;}
+.section p{font-size:14px;opacity:.9;line-height:1.6}
 
-.bottom-cta{margin-top:28px;font-size:14px;opacity:.85;}
-.footer{margin-top:10px;font-size:12px;opacity:.5;}
-
-/* üåû LIGHT MODE ‚Äì AUTO INVERT LOGO */
-@media (prefers-color-scheme: light){
-  body{background:#fff;color:#000;}
-  .crystal{background:rgba(255,255,255,0.35);}
-  .wa-item,.social-icons a{color:#000;}
-  .logo{filter:invert(1) brightness(1.1);}
+/* ================= FOOTER ================= */
+.footer-wrap{display:flex;justify-content:center;margin-top:auto;margin-bottom:18px}
+.footer-inner{
+  width:100%;max-width:420px;
+  display:flex;flex-direction:column;
+  align-items:center;gap:6px;opacity:.6;
 }
+.footer-logo{height:20px}
+@media (prefers-color-scheme: dark){.footer-logo{filter:invert(1)}}
+@media (prefers-color-scheme: light){.footer-logo{filter:invert(0)}}
+.footer-text{font-size:12px;text-align:center}
 </style>
 </head>
 
 <body>
 
-<div class="bg-glow">
-  <div class="glow cyan"></div>
-  <div class="glow magenta"></div>
-  <div class="glow yellow"></div>
+<!-- LIQUID CMYK BACKGROUND -->
+<div class="liquid-bg">
+  <div class="blob cyan"></div>
+  <div class="blob magenta"></div>
+  <div class="blob yellow"></div>
 </div>
 
 <div class="page">
-  <div class="page-inner fade">
-    <div class="container">
+<div class="page-inner">
 
-      <!-- SQUARE GLASS LOGO -->
-      <div class="logo-glass crystal">
-        <img src="logo.png" alt="GraphINK Logo" class="logo">
-      </div>
+<div class="main-content">
+<div class="container">
 
-      <h1>GRAPHINK</h1>
-      <div class="tagline">Ink Your Ideas</div>
+<h1>GRAPHINK</h1>
+<div class="tagline">Ink Your Ideas</div>
 
-      <div class="about">
-        GraphINK is a creative design & printing studio helping individuals and businesses
-        bring ideas to life through impactful design and premium print quality.
-      </div>
-
-      <div class="social-icons">
-        <a href="#" class="crystal"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="crystal"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="crystal"><i class="fab fa-tiktok"></i></a>
-      </div>
-
-      <div class="wa-combined crystal">
-        <a class="wa-item" href="https://wa.me/601115748863?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
-          <i class="fab fa-whatsapp"></i> Sales
-        </a>
-        <a class="wa-item" href="https://wa.me/60199083295?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
-          <i class="fab fa-whatsapp"></i> Design
-        </a>
-        <a class="wa-item" href="https://wa.me/601115748863?text=Hello%20GraphINK%20%F0%9F%91%8B%20Saya%20berminat%20dengan%20servis%20anda.">
-          <i class="fab fa-whatsapp"></i> Printing
-        </a>
-      </div>
-
-      <div class="chat-hint">Tap to chat on WhatsApp</div>
-
-      <div class="section">
-        <h3>Our Services</h3>
-        <p>
-          ‚Ä¢ Graphic Design & Branding<br>
-          ‚Ä¢ Printing & Custom Materials<br>
-          ‚Ä¢ Creative Consultation
-        </p>
-      </div>
-
-      <div class="section">
-        <h3>Why Choose Us</h3>
-        <p>
-          ‚Ä¢ Creative & Professional<br>
-          ‚Ä¢ Custom & Flexible<br>
-          ‚Ä¢ Fast & Affordable
-        </p>
-      </div>
-
-      <div class="bottom-cta">
-        Have a project in mind? Let‚Äôs work together.
-      </div>
-
-      <div class="footer">
-        ¬© 2026 GraphINK ¬∑ üìç Malaysia
-      </div>
-
-    </div>
-  </div>
+<div class="about">
+GraphINK is a creative design & printing studio helping individuals and businesses
+bring ideas to life through impactful design and premium print quality.
 </div>
+
+<div class="social-icons">
+<a href="#" aria-label="GraphINK Instagram"><i class="fab fa-instagram"></i></a>
+<a href="#" aria-label="GraphINK Facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="#" aria-label="GraphINK TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
+
+<div class="wa-wrapper" id="waBox">
+<input type="checkbox" id="wa-toggle">
+
+<label for="wa-toggle" class="wa-main">
+<i class="fab fa-whatsapp"></i> Chat on WhatsApp
+<i class="fas fa-chevron-down wa-arrow"></i>
+</label>
+
+<div class="wa-options">
+<div class="wa-options-inner">
+<a class="wa-option" onclick="trackWA('sales');closeWA()"
+href="https://wa.me/601115748863?text=Hi%20GraphINK,%20I%20need%20help%20with%20sales">
+<i class="fab fa-whatsapp"></i> Sales
+</a>
+<a class="wa-option" onclick="trackWA('design');closeWA()"
+href="https://wa.me/60199083295?text=Hi%20GraphINK,%20I%20need%20help%20with%20design">
+<i class="fab fa-whatsapp"></i> Design
+</a>
+<a class="wa-option" onclick="trackWA('printing');closeWA()"
+href="https://wa.me/601115748863?text=Hi%20GraphINK,%20I%20need%20help%20with%20printing">
+<i class="fab fa-whatsapp"></i> Printing
+</a>
+</div>
+</div>
+</div>
+
+<div class="wa-cta">Have a project in mind? Letís work together.</div>
+
+<div class="section">
+<h3>Our Services</h3>
+<p>ï Graphic Design & Branding<br>ï Printing & Custom Materials<br>ï Creative Consultation</p>
+</div>
+
+<div class="section">
+<h3>Why Choose Us</h3>
+<p>ï Creative & Professional<br>ï Custom & Flexible<br>ï Fast & Affordable</p>
+</div>
+
+</div>
+</div>
+
+<div class="footer-wrap">
+<div class="footer-inner">
+<img src="logo.png" alt="GraphINK Logo" class="footer-logo">
+<div class="footer-text">© 2026 GraphINK ∑ Malaysia</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+function trackWA(type){
+  if(typeof gtag==="function"){
+    gtag('event','whatsapp_click',{event_label:type});
+  }
+}
+function closeWA(){
+  setTimeout(()=>{document.getElementById('wa-toggle').checked=false;},200);
+}
+document.addEventListener('click',e=>{
+  const box=document.getElementById('waBox');
+  const toggle=document.getElementById('wa-toggle');
+  if(toggle.checked && !box.contains(e.target)){toggle.checked=false;}
+});
+</script>
 
 </body>
 </html>
