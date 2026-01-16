@@ -19,48 +19,30 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* =====================
-   BASE
-   ===================== */
+/* BASE */
 body{
   background:#000;
   color:#fff;
   min-height:100svh;
   display:flex;
   justify-content:center;
-  padding:clamp(20px, 5vw, 40px);
+  padding:clamp(20px,5vw,40px);
   overflow-x:hidden;
 }
 
 /* CENTER */
-.page{
-  width:100%;
-  display:flex;
-  justify-content:center;
-}
-.page-inner{
-  margin:auto 0;
-}
+.page{width:100%;display:flex;justify-content:center;}
+.page-inner{margin:auto 0;}
 
-/* FADE IN */
-.fade{
-  animation:fadeIn .35s ease forwards;
-  opacity:0;
-}
+/* FADE */
+.fade{animation:fadeIn .35s ease forwards;opacity:0;}
 @keyframes fadeIn{
-  from{opacity:0; transform:translateY(6px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0;transform:translateY(6px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* =====================
-   CMYK GLOW BACKGROUND
-   ===================== */
-.bg-glow{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-}
+/* CMYK GLOW */
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;}
 .glow{
   position:absolute;
   width:700px;
@@ -69,37 +51,19 @@ body{
   opacity:.18;
   animation:float 60s ease-in-out infinite;
 }
-.cyan{background:#00aeef; top:-260px; left:-260px;}
-.magenta{background:#ec008c; bottom:-280px; right:-280px; animation-delay:20s;}
-.yellow{background:#fff200; top:45%; right:-320px; opacity:.12; animation-delay:40s;}
-
+.cyan{background:#00aeef;top:-260px;left:-260px;}
+.magenta{background:#ec008c;bottom:-280px;right:-280px;animation-delay:20s;}
+.yellow{background:#fff200;top:45%;right:-320px;opacity:.12;animation-delay:40s;}
 @keyframes float{
   0%{transform:translate(0,0);}
   50%{transform:translate(140px,100px);}
   100%{transform:translate(0,0);}
 }
 
-/* =====================
-   CONTENT
-   ===================== */
-.container{
-  width:100%;
-  max-width:420px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
-
-.logo{
-  max-width:120px;
-  margin:0 auto 18px;
-}
-
-h1{
-  font-size:30px;
-  letter-spacing:2px;
-}
-
+/* CONTENT */
+.container{width:100%;max-width:420px;text-align:center;position:relative;z-index:1;}
+.logo{max-width:120px;margin:0 auto 18px;}
+h1{font-size:30px;letter-spacing:2px;}
 .tagline{
   font-size:14px;
   letter-spacing:1px;
@@ -108,7 +72,6 @@ h1{
   opacity:.75;
   margin:6px 0 12px;
 }
-
 .about{
   font-size:14px;
   opacity:.85;
@@ -116,36 +79,31 @@ h1{
   margin-bottom:18px;
 }
 
-/* =====================
-   CRYSTAL GLASS (30%)
-   ===================== */
+/* CRYSTAL */
 .crystal{
   position:relative;
-  background:rgba(255,255,255,0.3); /* 30% opacity */
+  background:rgba(255,255,255,0.3);
   backdrop-filter:blur(28px) saturate(180%);
   -webkit-backdrop-filter:blur(28px) saturate(180%);
   border-radius:999px;
   border:1px solid rgba(255,255,255,.35);
-  box-shadow:0 2px 6px rgba(0,0,0,.25); /* very thin shadow */
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
   overflow:hidden;
 }
-
-/* EDGE GLOW ANIMATION */
 .crystal::before{
   content:"";
   position:absolute;
   inset:0;
   padding:1px;
   border-radius:inherit;
-  background:
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,.6),
-      transparent,
-      rgba(255,255,255,.6),
-      transparent
-    );
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.6),
+    transparent,
+    rgba(255,255,255,.6),
+    transparent
+  );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -154,15 +112,12 @@ h1{
   animation:edgeGlow 6s linear infinite;
   pointer-events:none;
 }
-
 @keyframes edgeGlow{
   0%{background-position:0% 50%;}
   100%{background-position:200% 50%;}
 }
 
-/* =====================
-   SOCIAL ICONS
-   ===================== */
+/* SOCIAL */
 .social-icons{
   display:flex;
   justify-content:center;
@@ -180,9 +135,7 @@ h1{
   font-size:15px;
 }
 
-/* =====================
-   WHATSAPP
-   ===================== */
+/* WHATSAPP */
 .wa-combined{
   display:flex;
   width:100%;
@@ -190,7 +143,6 @@ h1{
   overflow:hidden;
   margin-bottom:6px;
 }
-
 .wa-item{
   flex:1;
   text-decoration:none;
@@ -204,12 +156,7 @@ h1{
   gap:6px;
   position:relative;
 }
-
-.wa-item i{
-  color:#25D366;
-}
-
-/* Divider */
+.wa-item i{color:#25D366;}
 .wa-item:not(:last-child)::after{
   content:"";
   position:absolute;
@@ -220,17 +167,10 @@ h1{
   background:rgba(255,255,255,.5);
 }
 
-/* HINT */
-.chat-hint{
-  font-size:12px;
-  opacity:.45;
-  margin-bottom:24px;
-}
+.chat-hint{font-size:12px;opacity:.45;margin-bottom:24px;}
 
 /* SECTIONS */
-.section{
-  margin-bottom:18px;
-}
+.section{margin-bottom:18px;}
 .section h3{
   font-size:13px;
   letter-spacing:1px;
@@ -238,62 +178,23 @@ h1{
   opacity:.6;
   margin-bottom:6px;
 }
-.section p{
-  font-size:14px;
-  opacity:.85;
-  line-height:1.6;
-}
+.section p{font-size:14px;opacity:.85;line-height:1.6;}
 
-/* CTA + FOOTER */
-.bottom-cta{
-  margin-top:28px;
-  font-size:14px;
-  opacity:.85;
-}
-.footer{
-  margin-top:10px;
-  font-size:12px;
-  opacity:.5;
-}
+.bottom-cta{margin-top:28px;font-size:14px;opacity:.85;}
+.footer{margin-top:10px;font-size:12px;opacity:.5;}
 
-/* =====================
-   LIGHT MODE
-   ===================== */
+/* LIGHT MODE */
 @media (prefers-color-scheme: light){
-  body{
-    background:#fff;
-    color:#000;
-  }
-
-  .glow{
-    opacity:.14;
-    filter:blur(200px);
-  }
-
+  body{background:#fff;color:#000;}
+  .glow{opacity:.14;filter:blur(200px);}
   .crystal{
     background:rgba(255,255,255,0.35);
     border:1px solid rgba(0,0,0,.15);
     box-shadow:0 2px 6px rgba(0,0,0,.18);
   }
-
-  .wa-item,
-  .social-icons a{
-    color:#000;
-  }
-
-  .wa-item:not(:last-child)::after{
-    background:rgba(0,0,0,.2);
-  }
-
-  .chat-hint{
-    color:#000;
-    opacity:.5;
-  }
-
-  .footer{
-    color:#000;
-    opacity:.6;
-  }
+  .wa-item,.social-icons a{color:#000;}
+  .wa-item:not(:last-child)::after{background:rgba(0,0,0,.2);}
+  .chat-hint,.footer{color:#000;}
 }
 </style>
 </head>
@@ -313,29 +214,28 @@ h1{
       <img src="logo.png" alt="GraphINK Logo" class="logo">
 
       <h1>GRAPHINK</h1>
-      <div class="tagline">“Ink Your Ideas”</div>
+      <div class="tagline">Ink Your Ideas</div>
 
       <div class="about">
         GraphINK is a creative design & printing studio helping individuals and businesses
         bring ideas to life through impactful design and premium print quality.
       </div>
 
-      <!-- SOCIAL -->
       <div class="social-icons">
         <a href="#" class="crystal"><i class="fab fa-instagram"></i></a>
         <a href="#" class="crystal"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="crystal"><i class="fab fa-tiktok"></i></a>
       </div>
 
-      <!-- WHATSAPP -->
+      <!-- UPDATED WHATSAPP -->
       <div class="wa-combined crystal">
-        <a class="wa-item" href="https://wa.me/60199083295">
+        <a class="wa-item" href="https://wa.me/601115748863">
           <i class="fab fa-whatsapp"></i> Sales
         </a>
-        <a class="wa-item" href="https://wa.me/60123456789">
+        <a class="wa-item" href="https://wa.me/60199083295">
           <i class="fab fa-whatsapp"></i> Design
         </a>
-        <a class="wa-item" href="https://wa.me/60111111111">
+        <a class="wa-item" href="https://wa.me/601115748863">
           <i class="fab fa-whatsapp"></i> Printing
         </a>
       </div>
@@ -345,18 +245,18 @@ h1{
       <div class="section">
         <h3>Our Services</h3>
         <p>
-          • Graphic design & branding<br>
-          • Printing & custom materials<br>
-          • Creative consultation
+          • Graphic Design & Branding<br>
+          • Printing & Custom Materials<br>
+          • Creative Consultation
         </p>
       </div>
 
       <div class="section">
         <h3>Why Choose Us</h3>
         <p>
-          • Creative & professional<br>
-          • Custom & flexible<br>
-          • Fast & affordable
+          • Creative & Professional<br>
+          • Custom & Flexible<br>
+          • Fast & Affordable
         </p>
       </div>
 
