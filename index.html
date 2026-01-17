@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GraphINK | Links</title>
+<title>GraphINK | Ink Your Ideas</title>
 
-<meta name="description" content="GraphINK – Creative design & printing studio in Malaysia.">
-<meta name="keywords" content="GraphINK, design, branding, printing">
-<meta name="theme-color" content="#000000">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-/* ========== TOKENS ========== */
+/* ===== THEME TOKENS ===== */
 :root{
   --bg:#000;
   --text:#fff;
@@ -23,17 +21,8 @@
   --panel:#f5f5f5;
   --panel-text:#000;
 }
-@media (prefers-color-scheme: light){
-  :root{
-    --bg:#fff;
-    --text:#000;
-    --muted:rgba(0,0,0,.55);
-    --panel:#000;
-    --panel-text:#fff;
-  }
-}
 
-/* ========== BODY ========== */
+/* ===== BODY ===== */
 body{
   background:var(--bg);
   color:var(--text);
@@ -41,190 +30,168 @@ body{
   display:flex;
   justify-content:center;
   padding:clamp(16px,4vw,40px);
+  transition:background-color .4s ease,color .4s ease;
 }
 
-/* ========== LIQUID CMYK ========== */
-.liquid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
+/* ===== CMYK BACKGROUND ===== */
+.liquid-bg{position:fixed;inset:0;z-index:-1}
 .blob{
   position:absolute;
-  width:min(70vmax,520px);
-  height:min(70vmax,520px);
+  width:520px;height:520px;
   border-radius:50%;
   filter:blur(140px);
   opacity:.18;
   animation:float 48s ease-in-out infinite;
 }
-.blob.cyan{background:#00aeef;top:-30%;left:-30%}
-.blob.magenta{background:#ec008c;top:-35%;right:-25%;animation-delay:16s}
-.blob.yellow{background:#fff200;bottom:-40%;left:20%;opacity:.12;animation-delay:32s}
+.cyan{background:#00aeef;top:-30%;left:-30%}
+.magenta{background:#ec008c;top:-35%;right:-25%;animation-delay:16s}
+.yellow{background:#fff200;bottom:-40%;left:20%;opacity:.12;animation-delay:32s}
 @keyframes float{
-  0%{transform:translate(0,0) scale(1)}
   50%{transform:translate(18vw,12vh) scale(1.08)}
-  100%{transform:translate(0,0) scale(1)}
 }
 
-/* ========== PAGE LAYOUT ========== */
-.page{
-  width:100%;
-  max-width:460px;
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-}
-.main{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:clamp(10px,2vw,18px);
-}
-
-/* ========== LANGUAGE TOGGLE ========== */
-.lang-toggle{
+/* ===== TOP CONTROLS ===== */
+.top-controls{
   position:absolute;
-  top:clamp(12px,3vw,20px);
-  right:clamp(12px,3vw,20px);
+  top:16px;
+  left:0;right:0;
   display:flex;
-  gap:6px;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10;
 }
-.lang-toggle button{
-  background:transparent;
-  border:1px solid var(--muted);
+.control-group button{
+  width:36px;height:36px;
+  border-radius:6px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.25);
   color:var(--text);
   font-size:11px;
-  padding:4px 8px;
-  border-radius:6px;
-  cursor:pointer;
-  opacity:.6;
-}
-.lang-toggle button.active{
-  opacity:1;
-  border-color:var(--text);
-}
-
-/* ========== HEADER ========== */
-h1{
-  text-align:center;
-  font-size:clamp(22px,6vw,28px);
-  letter-spacing:2px;
-}
-.tagline{
-  text-align:center;
-  font-size:clamp(11px,3.2vw,13px);
   font-weight:600;
-  opacity:.8;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:.85;
 }
+.control-group button:active{transform:scale(.9)}
+.control-group i{font-size:14px}
 
-/* ========== ABOUT ========== */
-.about{
-  text-align:center;
-  font-size:clamp(13px,3.6vw,14px);
-  line-height:1.6;
-  opacity:0;
-  transform:translateY(6px);
-  animation:aboutFade .8s ease forwards;
-}
-@keyframes aboutFade{
-  to{opacity:.9;transform:translateY(0)}
-}
+/* ===== PAGE ===== */
+.page{max-width:460px;width:100%;display:flex;flex-direction:column}
+.main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
 
-/* ========== SOCIAL ========== */
+h1{text-align:center;letter-spacing:2px}
+.tagline,.about,.project-cta{text-align:center}
+
+/* ===== SOCIAL ===== */
 .social-icons{
   display:flex;
   justify-content:center;
-  gap:clamp(16px,5vw,22px);
+  gap:22px;
 }
-.social-icons a{
-  color:var(--muted);
-  font-size:clamp(18px,5vw,22px);
-}
+.social-icons a{color:var(--muted);font-size:20px}
 
-/* ========== WHATSAPP ========== */
-.wa-wrapper{}
+/* ===== WHATSAPP ===== */
 #wa-toggle{display:none}
 .wa-main{
   background:var(--panel);
   color:var(--panel-text);
-  padding:clamp(12px,3vw,14px);
+  padding:14px;
   border-radius:12px;
   display:flex;
   justify-content:center;
-  gap:10px;
+  align-items:center;
+  gap:8px;
   font-weight:600;
-  font-size:clamp(13px,3.6vw,14px);
   cursor:pointer;
 }
-.wa-main i{color:#25D366}
 .wa-options{display:grid;grid-template-rows:0fr;transition:.3s}
-#wa-toggle:checked ~ .wa-options{grid-template-rows:1fr}
-.wa-options-inner{
-  overflow:hidden;
-  margin-top:10px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
+#wa-toggle:checked~.wa-options{grid-template-rows:1fr}
+.wa-options-inner{overflow:hidden;margin-top:10px;display:flex;flex-direction:column;gap:8px}
 .wa-option{
   background:var(--panel);
   color:var(--panel-text);
-  padding:clamp(10px,3vw,12px);
+  padding:12px;
   border-radius:10px;
   text-align:center;
-  font-size:clamp(12px,3.4vw,13px);
   font-weight:600;
   text-decoration:none;
 }
 
-/* ========== CTA ========== */
-.project-cta{
-  text-align:center;
-  font-size:clamp(13px,3.6vw,14px);
-  opacity:.85;
-}
-.project-cta span{opacity:.6}
+/* ===== SECTIONS ===== */
+.section h3{text-align:center;font-size:12px;opacity:.7}
+.infographic{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 
-/* ========== INFOGRAPHIC ========== */
-.section{}
-.section h3{
-  text-align:center;
-  font-size:clamp(11px,3vw,12px);
-  letter-spacing:1px;
-  text-transform:uppercase;
-  opacity:.7;
-}
-.infographic{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:clamp(8px,2.4vw,14px);
-}
+/* ===== HyperOS 3 STYLE CARDS ===== */
 .info-item{
-  background:rgba(255,255,255,.035);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;
-  padding:clamp(10px,3vw,16px);
+  position:relative;
+  border-radius:16px;
+  padding:14px;
   text-align:center;
-}
-@media (prefers-color-scheme: light){
-  .info-item{background:rgba(0,0,0,.035);border-color:rgba(0,0,0,.08)}
-}
-.info-item i{
-  font-size:clamp(18px,5vw,22px);
-  margin-bottom:6px;
-  display:block;
-}
-.info-item span{
-  font-size:clamp(11px,3vw,12px);
-  font-weight:600;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-/* ========== FOOTER ========== */
-.footer{
-  text-align:center;
-  opacity:.6;
-  margin-top:clamp(10px,3vw,14px);
+.info-item i{font-size:22px}
+.info-item span{font-size:12px;font-weight:600}
+
+/* Light mode refinement */
+body[style*="--bg: #fff"] .info-item,
+body[style*="--bg:#fff"] .info-item{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.95),
+      rgba(245,245,245,0.88)
+    );
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.9);
 }
-.footer img{height:18px}
-.footer p{font-size:11px;margin-top:4px}
+
+/* Hover lift (desktop only) */
+@media (hover:hover){
+  .info-item:hover{
+    transform:translateY(-4px);
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.25),
+      inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+}
+
+/* ===== TRUSTED ===== */
+.credibility{
+  text-align:center;
+  font-size:12px;
+  opacity:.7;
+  margin-top:24px;
+}
+
+/* ===== FOOTER ===== */
+.footer{text-align:center;opacity:.6;margin-top:12px}
+.footer p{font-size:11px}
 </style>
 </head>
 
@@ -236,9 +203,15 @@ h1{
   <div class="blob yellow"></div>
 </div>
 
-<div class="lang-toggle">
-  <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
-  <button id="bmBtn" onclick="setLang('bm')">BM</button>
+<div class="top-controls">
+  <div class="control-group">
+    <button id="langToggle" onclick="toggleLang()">EN</button>
+  </div>
+  <div class="control-group">
+    <button id="themeToggle" onclick="toggleTheme()">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
 </div>
 
 <div class="page">
@@ -246,20 +219,21 @@ h1{
 
 <h1>GRAPHINK</h1>
 <div class="tagline" id="tagline"></div>
-
 <div class="about" id="aboutText"></div>
 
 <div class="social-icons">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fab fa-tiktok"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-tiktok"></i></a>
 </div>
 
 <div class="wa-wrapper">
 <input type="checkbox" id="wa-toggle">
-<label for="wa-toggle" class="wa-main" id="waBtn">
-<i class="fab fa-whatsapp"></i>
+<label for="wa-toggle" class="wa-main">
+  <i class="fab fa-whatsapp"></i>
+  <span id="waMainText"></span>
 </label>
+
 <div class="wa-options">
 <div class="wa-options-inner">
 <a class="wa-option" id="waSales" href="https://wa.me/601115748863"></a>
@@ -289,22 +263,27 @@ h1{
 </div>
 </div>
 
+<div class="credibility" id="credibilityText"></div>
+
 </div>
 
 <div class="footer">
-<img src="logo.png" alt="GraphINK logo">
 <p>© 2026 GraphINK · Malaysia</p>
 </div>
-
 </div>
 
 <script>
+let currentLang="en";
+let currentTheme=localStorage.getItem("theme")||
+(window.matchMedia('(prefers-color-scheme: dark)').matches?"dark":"light");
+
 const lang={
 en:{
 tagline:"Ink Your Ideas",
-about:"GraphINK is a creative studio focused on design, branding, and print—transforming ideas into bold, purposeful visuals that leave a lasting impression.",
-wa:"Chat on WhatsApp",
-cta:"Have a project in mind?<br><span>Let’s work together.</span>",
+about:"GraphINK brings ideas to life through bold design and smart print.",
+credibility:"Trusted by startups & local brands across Malaysia",
+waMain:"Contact Us Now",
+cta:"Have a project in mind?<br><span>Let’s make it happen.</span>",
 services:"Our Services",
 why:"Why Choose Us",
 s1:"Branding<br>& Design",
@@ -313,15 +292,16 @@ s3:"Creative<br>Consultation",
 w1:"Creative<br>& Professional",
 w2:"Custom<br>& Flexible",
 w3:"Fast<br>& Affordable",
-sales:"Sales",
-design:"Design",
-print:"Printing"
+sales:"Sales & Quotation",
+design:"Design Enquiry",
+print:"Printing Order"
 },
 bm:{
 tagline:"Serlahkan Idea Anda",
-about:"GraphINK ialah studio kreatif yang memfokuskan kepada reka bentuk, penjenamaan dan percetakan—menjadikan idea kepada visual yang berani, bermakna dan memberi impak.",
-wa:"Hubungi Kami di WhatsApp",
-cta:"Ada projek dalam fikiran?<br><span>Jom bekerjasama.</span>",
+about:"GraphINK menghidupkan idea melalui reka bentuk berani dan percetakan pintar.",
+credibility:"Dipercayai oleh jenama tempatan di Malaysia",
+waMain:"Hubungi Kami Sekarang",
+cta:"Ada projek dalam fikiran?<br><span>Jom realisasikan.</span>",
 services:"Perkhidmatan Kami",
 why:"Kenapa Pilih Kami",
 s1:"Penjenamaan<br>& Reka Bentuk",
@@ -330,29 +310,62 @@ s3:"Konsultasi<br>Kreatif",
 w1:"Kreatif<br>& Profesional",
 w2:"Fleksibel<br>& Tersuai",
 w3:"Pantas<br>& Berpatutan",
-sales:"Jualan",
-design:"Reka Bentuk",
-print:"Percetakan"
+sales:"Jualan & Sebutharga",
+design:"Pertanyaan Reka Bentuk",
+print:"Tempahan Percetakan"
 }
 };
 
-function setLang(l){
-const d=lang[l];
-tagline.innerHTML=d.tagline;
-aboutText.innerHTML=d.about;
-waBtn.innerHTML='<i class="fab fa-whatsapp"></i> '+d.wa;
-ctaText.innerHTML=d.cta;
-servicesTitle.innerText=d.services;
-whyTitle.innerText=d.why;
-s1.innerHTML=d.s1; s2.innerHTML=d.s2; s3.innerHTML=d.s3;
-w1.innerHTML=d.w1; w2.innerHTML=d.w2; w3.innerHTML=d.w3;
-waSales.innerText=d.sales;
-waDesign.innerText=d.design;
-waPrint.innerText=d.print;
-enBtn.classList.toggle("active",l==="en");
-bmBtn.classList.toggle("active",l==="bm");
+function applyLang(){
+  const d=lang[currentLang];
+  tagline.innerHTML=d.tagline;
+  aboutText.innerHTML=d.about;
+  credibilityText.innerHTML=d.credibility;
+  waMainText.innerText=d.waMain;
+  ctaText.innerHTML=d.cta;
+  servicesTitle.innerText=d.services;
+  whyTitle.innerText=d.why;
+  s1.innerHTML=d.s1; s2.innerHTML=d.s2; s3.innerHTML=d.s3;
+  w1.innerHTML=d.w1; w2.innerHTML=d.w2; w3.innerHTML=d.w3;
+  waSales.innerText=d.sales;
+  waDesign.innerText=d.design;
+  waPrint.innerText=d.print;
+  langToggle.innerText=currentLang==="en"?"EN":"BM";
 }
-setLang("en");
+
+function toggleLang(){
+  currentLang=currentLang==="en"?"bm":"en";
+  applyLang();
+}
+
+function applyTheme(mode){
+  const r=document.documentElement;
+  const icon=document.querySelector("#themeToggle i");
+  if(mode==="dark"){
+    r.style.setProperty('--bg','#000');
+    r.style.setProperty('--text','#fff');
+    r.style.setProperty('--muted','rgba(255,255,255,.6)');
+    r.style.setProperty('--panel','#f5f5f5');
+    r.style.setProperty('--panel-text','#000');
+    icon.className="fas fa-moon";
+  }else{
+    r.style.setProperty('--bg','#fff');
+    r.style.setProperty('--text','#000');
+    r.style.setProperty('--muted','rgba(0,0,0,.55)');
+    r.style.setProperty('--panel','#000');
+    r.style.setProperty('--panel-text','#fff');
+    icon.className="fas fa-sun";
+  }
+  localStorage.setItem("theme",mode);
+}
+
+function toggleTheme(){
+  currentTheme=currentTheme==="dark"?"light":"dark";
+  applyTheme(currentTheme);
+}
+
+applyTheme(currentTheme);
+applyLang();
 </script>
 
 </body>
